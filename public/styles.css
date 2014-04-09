@@ -1,0 +1,49 @@
+.navigator {
+    position: absolute;
+    right: 0;
+}
+
+.slider {
+    position: relative;
+    margin-top: 25px;
+}
+
+.scale {
+    background-image: url("/images/scale.png");
+    width: 14px;
+    height: 291px;
+    position: absolute;
+    top: 0px;
+    right: 20px;
+}
+
+.pointer {
+    background-image: url("/images/slider.png");
+    width: 27px;
+    height: 15px;
+    position: absolute;
+    top: -7px;
+    right: 14px;
+}
+
+.slide {
+    display: inline-block;
+    position: relative;
+}
+
+.arrow {
+    background-image: url("/images/arrow.png");
+    width: 55px;
+    height: 70px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.arrow-up {
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: FlipV;
+    -ms-filter: "FlipV";
+}
