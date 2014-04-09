@@ -1,6 +1,7 @@
 .navigator {
     position: absolute;
     right: 0;
+    z-index: 1;
 }
 
 .slider {
@@ -30,6 +31,7 @@
 .slide {
     display: inline-block;
     position: relative;
+    overflow: hidden;
 }
 
 .arrow {
@@ -48,4 +50,26 @@
     transform: scaleY(-1);
     filter: FlipV;
     -ms-filter: "FlipV";
+}
+
+.moving-slide {
+    position: absolute;
+}
+
+.moving-slide.animate-show {
+    display: block !important;
+    -webkit-transition: all linear 0.1s;
+    transition: all linear 0.1s;
+    opacity: 1;
+    top: 0;
+}
+.moving-slide.animate-show.ng-hide {
+    -webkit-transition: all linear 0s;
+    transition: all linear 0s;
+    opacity: 0;
+    top: 700px;
+}
+
+.moving-slide.animate-show.up.ng-hide {
+    top: -700px;
 }

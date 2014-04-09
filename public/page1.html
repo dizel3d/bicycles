@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.14/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js"></script>
 </head>
@@ -20,7 +21,14 @@
                         <div class="pointer" style="top: {{29 * index}}px"></div>
                     </div>
                 </div>
-                <img ng-src="/images/{{data[index].imageUrl}}">
+                <div>
+                    <div ng-if="moveCount > 0" class="moving-slide animate-show" ng-class="moveDirection" ng-show="canShowNext()">
+                        <img ng-src="/images/{{data[index].imageUrl}}">
+                    </div>
+                    <div>
+                        <img ng-src="/images/{{data[prevIndex].imageUrl}}">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
