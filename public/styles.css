@@ -11,9 +11,9 @@
 .scale {
     background-image: url("/images/scale.png");
     width: 14px;
-    height: 291px;
+    height: 1px;
     position: absolute;
-    top: 0px;
+    top: 0;
     right: 20px;
 }
 
@@ -22,7 +22,8 @@
     width: 27px;
     height: 15px;
     position: absolute;
-    top: -7px;
+    margin-top: -7px;
+    top: 0;
     right: 14px;
 }
 
@@ -32,11 +33,12 @@
 }
 
 .arrow {
+    display: block;
+    cursor: pointer;
     background-image: url("/images/arrow.png");
     width: 55px;
     height: 70px;
     margin: 2px;
-    cursor: pointer;
 }
 
 .arrow-up {

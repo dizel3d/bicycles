@@ -1,8 +1,26 @@
 [
     {
-        "imageUrl": "/bicycle-1.png"
+        "imageUrl": "bicycle-1.jpg"
     },
     {
-        "imageUrl": "/bicycle-2.png"
+        "imageUrl": "bicycle-2.jpg"
+    },
+    {
+        "imageUrl": "bicycle-3.jpg"
+    },
+    {
+        "imageUrl": "bicycle-4.jpg"
+    },
+    {
+        "imageUrl": "bicycle-5.jpg"
+    },
+    {
+        "imageUrl": "bicycle-6.jpg"
+    },
+    {
+        "imageUrl": "bicycle-7.jpg"
+    },
+    {
+        "imageUrl": "bicycle-8.jpg"
     }
 ]

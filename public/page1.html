@@ -11,16 +11,16 @@
 <body>
     <div ng-app="app">
         <div ng-controller="Page1Controller">
-            <div class="slide">
+            <div class="slide" ng-if="data">
                 <div class="navigator">
-                    <div class="arrow arrow-up"></div>
-                    <div class="arrow"></div>
+                    <a class="arrow arrow-up" ng-click="movePrev()" ng-show="canMovePrev"></a>
+                    <a class="arrow" ng-click="moveNext()" ng-show="canMoveNext"></a>
                     <div class="slider">
-                        <div class="scale"></div>
-                        <div class="pointer"></div>
+                        <div class="scale" style="height: {{29 * (data.length - 1) + 1}}px"></div>
+                        <div class="pointer" style="top: {{29 * index}}px"></div>
                     </div>
                 </div>
-                <img src="/images/bicycle-1.jpg">
+                <img ng-src="/images/{{data[index].imageUrl}}">
             </div>
         </div>
     </div>
