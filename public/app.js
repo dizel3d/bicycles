@@ -29,6 +29,20 @@ angular.module('app', ['ngAnimate'])
             this.canMovePrev = canMovePrev;
         };
 
+        // TODO change slide on arrow keys down
+        $scope.onKeyDown = function(e) {
+            switch (e.keyCode) {
+                case 37:
+                case 38:
+                    this.movePrev();
+                    break;
+                case 39:
+                case 40:
+                    this.moveNext();
+                    break;
+            }
+        };
+
         // Slide sketch visibility
         $scope.sketch = false;
 
