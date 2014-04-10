@@ -29,6 +29,10 @@
                         <img ng-src="/images/{{data[prevIndex].imageUrl}}">
                     </div>
                 </div>
+
+                <div style="display: none">
+                    <img ng-repeat="x in data" ng-src="/images/{{x.imageUrl}}" />
+                </div>
             </div>
         </div>
     </div>
