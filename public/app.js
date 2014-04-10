@@ -1,20 +1,16 @@
 angular.module('app', ['ngAnimate'])
-    .controller('Page1Controller', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
 
-        var nextIsVisible = true;
-
+    .controller('ViewerController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
         $scope.moveNext = function() {
-            $scope.setIndex($scope.index + 1);
-            $scope.moveDirection = '';
+            this.setIndex(this.index + 1);
         };
 
         $scope.movePrev = function() {
-            $scope.setIndex($scope.index - 1);
-            $scope.moveDirection = 'up';
+            this.setIndex(this.index - 1);
         };
 
         $scope.setIndex = function(index) {
-            var indexSup = $scope.data.length - 1;
+            var indexSup = this.data.length - 1;
             var canMoveNext = true;
             var canMovePrev = true;
 
@@ -27,30 +23,17 @@ angular.module('app', ['ngAnimate'])
                 canMoveNext = false;
             }
 
-            this.prevIndex = this.index === undefined ? index : this.index;
-
-            // TODO replace with img.onload
-            $timeout(function() {
-                nextIsVisible = false;
-                $scope.index = index;
-                $scope.moveCount += 1;
-                $scope.canMoveNext = canMoveNext;
-                $scope.canMovePrev = canMovePrev;
-            }, 100);
+            this.prevIndex = this.index;
+            $timeout(function() { $scope.index = index; }, 0);
+            this.canMoveNext = canMoveNext;
+            this.canMovePrev = canMovePrev;
         };
 
-        $scope.canShowNext = function() {
-            if (!nextIsVisible) {
-                $timeout(function() {
-                    nextIsVisible = true;
-                }, 0);
-            }
-            return nextIsVisible;
-        };
+        // Slide sketch visibility
+        $scope.sketch = false;
 
         $http.get('/data/list.json').success(function(data) {
             $scope.data = data;
-            $scope.moveCount = -1;
             $scope.setIndex(0);
         });
     }]);

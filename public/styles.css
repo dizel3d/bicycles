@@ -1,15 +1,21 @@
-.navigator {
-    position: absolute;
-    right: 0;
-    z-index: 1;
+.viewer {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
 }
 
-.slider {
+.viewer .navigator {
+    position: absolute;
+    right: 0;
+    z-index: 2;
+}
+
+.viewer .navigator .slider {
     position: relative;
     margin-top: 25px;
 }
 
-.scale {
+.viewer .navigator .slider .scale {
     background-image: url("/images/scale.png");
     width: 14px;
     height: 1px;
@@ -18,7 +24,7 @@
     right: 20px;
 }
 
-.pointer {
+.viewer .navigator .slider .pointer {
     background-image: url("/images/slider.png");
     width: 27px;
     height: 15px;
@@ -28,22 +34,16 @@
     right: 14px;
 }
 
-.slide {
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-}
-
-.arrow {
+.viewer .navigator .arrow {
     display: block;
     cursor: pointer;
     background-image: url("/images/arrow.png");
     width: 55px;
     height: 70px;
-    margin: 2px;
+    margin: 1px;
 }
 
-.arrow-up {
+.viewer .navigator .arrow-up {
     -moz-transform: scaleY(-1);
     -o-transform: scaleY(-1);
     -webkit-transform: scaleY(-1);
@@ -52,24 +52,34 @@
     -ms-filter: "FlipV";
 }
 
-.moving-slide {
+.viewer .slide {
     position: absolute;
 }
 
-.moving-slide.animate-show {
+.viewer .slide .sketch {
+    position: absolute;
+    opacity: 0.5;
+}
+
+.viewer .slide.active {
+    z-index: 1;
+}
+
+.viewer .slide.animate-show {
     display: block !important;
-    -webkit-transition: all linear 0.1s;
-    transition: all linear 0.1s;
+    -webkit-transition: all linear 0.2s;
+    transition: all linear 0.2s;
     opacity: 1;
     top: 0;
 }
-.moving-slide.animate-show.ng-hide {
+
+.viewer .slide.animate-show.ng-hide {
     -webkit-transition: all linear 0s;
     transition: all linear 0s;
     opacity: 0;
-    top: 700px;
+    top: 900px;
 }
 
-.moving-slide.animate-show.up.ng-hide {
-    top: -700px;
+.viewer .slide.animate-show.up.ng-hide {
+    top: -900px;
 }
