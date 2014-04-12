@@ -1,3 +1,7 @@
+/**
+ * Slide viewer
+ */
+
 .viewer {
     display: inline-block;
     position: relative;
@@ -130,3 +134,7 @@
 .viewer .slide.animate-show.up.ng-hide {
     top: -900px;
 }
+
+/**
+ * Application
+ */

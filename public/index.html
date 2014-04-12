@@ -10,42 +10,14 @@
     <script src="app.js"></script>
 </head>
 <body>
-    <div ng-app="app" ng-controller="ViewerController">
-        <div class="viewer" ng-if="data">
-
-            <!-- navigator -->
-            <div class="navigator" ng-class="{flip: flipNavigator}">
-                <a class="arrow arrow-up" ng-click="movePrev()" ng-show="canMovePrev"></a>
-                <a class="arrow" ng-click="moveNext()" ng-show="canMoveNext"></a>
-                <div class="slider">
-                    <div class="scale" style="height: {{29 * (data.length - 1) + 1}}px"></div>
-                    <div class="pointer" style="top: {{29 * (flipNavigator ? data.length-1-index : index)}}px"></div>
-                </div>
-            </div>
-
-            <!-- slides -->
-            <div ng-repeat="slide in data">
-                <div class="slide"
-                     ng-class="{active: $index === index, 'animate-show': prevIndex !== undefined, up: prevIndex > index}"
-                     ng-show="$index === index || $index === prevIndex">
-
-                    <!-- slide sketch -->
-                    <img class="sketch"
-                         ng-if="sketch"
-                         ng-src="{{slide.sketchUrl}}" />
-
-                    <!-- slide -->
-                    <div ng-include="slide.templateUrl"></div>
-                 </div>
-            </div>
-
-            <!-- placeholder -->
-            <img src="/images/bicycle-1.jpg" />
+    <div ng-app="app" ng-controller="AppController">
+        <div ng-app="app">
+            <div slide-viewer navigator-flip="false" navigator-loop="false" sketch-show="showSketch"></div>
         </div>
 
         <!-- development panel -->
         <div>
-            Show slide sketches: <input type="checkbox" ng-model="sketch">
+            Show slide sketches: <input type="checkbox" ng-model="showSketch">
         </div>
     </div>
 </body>

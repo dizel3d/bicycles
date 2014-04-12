@@ -1,65 +1,75 @@
 angular.module('app', ['ngAnimate'])
 
-    .controller('ViewerController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
-        $scope.moveNext = function() {
-            this.setIndex(this.index + 1);
-        };
+    .directive('slideViewer', function() {
+        return {
+            templateUrl: 'templates/slide-viewer.html',
 
-        $scope.movePrev = function() {
-            this.setIndex(this.index - 1);
-        };
+            scope: {
+                navigatorFlip: '=', // navigator view
+                navigatorLoop: '=',
+                sketchShow: '=' // slide sketch visibility
+            },
 
-        $scope.setIndex = function(index) {
-            var indexSup = this.data.length - 1;
-            var canMoveNext = true;
-            var canMovePrev = true;
+            controller: ['$scope', '$timeout', '$http', function($scope, $timeout, $http) {
+                $scope.moveNext = function() {
+                    this.setIndex(this.index + 1);
+                };
 
-            if (this.loopNavigator) {
-                if (index < 0) {
-                    index = indexSup;
-                }
-                if (index > indexSup) {
-                    index = 0;
-                }
-            } else {
-                if (index <= 0) {
-                    index = 0;
-                    canMovePrev = false;
-                }
-                if (index >= indexSup) {
-                    index = indexSup;
-                    canMoveNext = false;
-                }
-            }
+                $scope.movePrev = function() {
+                    this.setIndex(this.index - 1);
+                };
 
-            this.prevIndex = this.index;
-            $timeout(function() { $scope.index = index; }, 0);
-            this.canMoveNext = canMoveNext;
-            this.canMovePrev = canMovePrev;
-        };
+                $scope.setIndex = function(index) {
+                    var indexSup = this.data.length - 1;
+                    var canMoveNext = true;
+                    var canMovePrev = true;
 
-        // TODO change slide on arrow keys down
-        $scope.onKeyDown = function(e) {
-            switch (e.keyCode) {
-                case 37:
-                case 38:
-                    this.movePrev();
-                    break;
-                case 39:
-                case 40:
-                    this.moveNext();
-                    break;
-            }
-        };
+                    if (this.navigatorLoop) {
+                        if (index < 0) {
+                            index = indexSup;
+                        }
+                        if (index > indexSup) {
+                            index = 0;
+                        }
+                    } else {
+                        if (index <= 0) {
+                            index = 0;
+                            canMovePrev = false;
+                        }
+                        if (index >= indexSup) {
+                            index = indexSup;
+                            canMoveNext = false;
+                        }
+                    }
 
-        $scope.flipNavigator = true;
-        $scope.loopNavigator = $scope.flipNavigator;
+                    this.prevIndex = this.index;
+                    $timeout(function() { $scope.index = index; }, 0);
+                    this.canMoveNext = canMoveNext;
+                    this.canMovePrev = canMovePrev;
+                };
 
-        // Slide sketch visibility
-        $scope.sketch = false;
+                // TODO change slide on arrow keys down
+                $scope.onKeyDown = function(e) {
+                    switch (e.keyCode) {
+                        case 37:
+                        case 38:
+                            this.movePrev();
+                            break;
+                        case 39:
+                        case 40:
+                            this.moveNext();
+                            break;
+                    }
+                };
 
-        $http.get('/data/list.json').success(function(data) {
-            $scope.data = data;
-            $scope.setIndex(0);
-        });
+                $http.get('/data/list.json').success(function(data) {
+                    $scope.data = data.main;
+                    $scope.setIndex(0);
+                });
+            }]
+        }
+    })
+
+    .controller('AppController', ['$scope', function($scope) {
+
     }]);
