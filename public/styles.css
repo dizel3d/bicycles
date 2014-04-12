@@ -109,20 +109,20 @@
     transform: rotate(90deg);
 }
 
-.viewer .slide {
+.viewer .slide-container {
     position: absolute;
 }
 
-.viewer .slide .sketch {
+.viewer .slide-container .sketch {
     position: absolute;
     opacity: 0.5;
 }
 
-.viewer .slide.active {
+.viewer .slide-container.active {
     z-index: 1;
 }
 
-.viewer .slide.animate-show {
+.viewer .slide-container.animate-show {
     display: block !important;
     -webkit-transition: all linear 0.2s;
     transition: all linear 0.2s;
@@ -130,17 +130,67 @@
     top: 0;
 }
 
-.viewer .slide.animate-show.ng-hide {
+.viewer .slide-container.animate-show.ng-hide {
     -webkit-transition: all linear 0s;
     transition: all linear 0s;
     opacity: 0;
     top: 900px;
 }
 
-.viewer .slide.animate-show.up.ng-hide {
+.viewer .slide-container.animate-show.up.ng-hide {
     top: -900px;
 }
 
 /**
- * Application
+ * Slide
  */
+
+.slide .logo {
+    position: absolute;
+    background: url("/images/logo.png") center no-repeat;
+    width: 103px;
+    height: 100px;
+    left: 25px;
+    top: 20px;
+}
+
+.slide .info {
+    position: absolute;
+    margin: 1px;
+    right: 56px;
+}
+
+.slide .info-content {
+    display: block !important;
+}
+
+.slide .info-content.animate-show {
+    -webkit-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+    opacity: 1;
+}
+
+.slide .info-content.animate-show.ng-hide {
+    -webkit-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+    opacity: 0;
+}
+
+.slide .info-btn {
+    display: block;
+    position: absolute;
+    width: 55px;
+    height: 70px;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.slide .info-btn.info-close-btn {
+    background: url("/images/cross.png") center no-repeat;
+}
+
+.slide .info-btn.info-show-btn {
+    background: url("/images/list.png") center no-repeat;
+    background-color: #393939;
+}

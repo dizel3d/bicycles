@@ -12,7 +12,7 @@
 
         <!-- slides -->
         <div ng-repeat="slide in slides">
-            <div class="slide"
+            <div class="slide-container"
                  ng-class="{active: $index === index, 'animate-show': prevIndex !== undefined, up: prevIndex > index}"
                  ng-show="$index === index || $index === prevIndex">
 
@@ -22,7 +22,7 @@
                      ng-src="{{slide.sketchUrl}}" />
 
                 <!-- slide -->
-                <div ng-include="slide.templateUrl"></div>
+                <div ng-include="slide.templateUrl" class="slide"></div>
             </div>
         </div>
     </div>

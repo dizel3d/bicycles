@@ -77,13 +77,26 @@ angular.module('app', ['ngAnimate'])
                     setIndex($scope.current || 0);
                 });
             }]
-        }
+        };
+    })
+
+    .directive('slideInfo', function() {
+        return {
+            templateUrl: 'templates/slide-info.html',
+            transclude: true,
+            controller: ['$scope', function($scope) {
+                $scope.showInfo = true;
+            }]
+        };
     })
 
     .controller('AppController', ['$scope', '$http', function($scope, $http) {
+        $scope.showSketch = true;
+
         $http.get('/data/list.json').success(function(data) {
             $scope.main = {
                 slides: data.main,
+                current: 1,
                 context: {
                     showDetails: function(index) {
                         $scope.details.current = index;
