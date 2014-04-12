@@ -5,26 +5,25 @@ angular.module('app', ['ngAnimate'])
             templateUrl: 'templates/slide-viewer.html',
 
             scope: {
-                navigatorFlip: '=', // navigator view
-                navigatorLoop: '=',
-                sketchShow: '=' // slide sketch visibility
+                navigatorFlip: '=', // navigator horizontal or vertical orientation
+                navigatorLoop: '=', // loop navigator slider moving
+                sketchShow: '=', // slide sketch visibility
+                current: '=', // current slide index
+                slides: '=', // slide array
+                context: '=' // slide context
             },
 
-            controller: ['$scope', '$timeout', '$http', function($scope, $timeout, $http) {
-                $scope.moveNext = function() {
-                    this.setIndex(this.index + 1);
-                };
+            controller: ['$scope', '$timeout', function($scope, $timeout) {
+                var setIndex = function(index) {
+                    if (!$scope.slides || isNaN(index)) {
+                        return;
+                    }
 
-                $scope.movePrev = function() {
-                    this.setIndex(this.index - 1);
-                };
-
-                $scope.setIndex = function(index) {
-                    var indexSup = this.data.length - 1;
+                    var indexSup = $scope.slides.length - 1;
                     var canMoveNext = true;
                     var canMovePrev = true;
 
-                    if (this.navigatorLoop) {
+                    if ($scope.navigatorLoop) {
                         if (index < 0) {
                             index = indexSup;
                         }
@@ -42,10 +41,18 @@ angular.module('app', ['ngAnimate'])
                         }
                     }
 
-                    this.prevIndex = this.index;
+                    $scope.prevIndex = $scope.index;
                     $timeout(function() { $scope.index = index; }, 0);
-                    this.canMoveNext = canMoveNext;
-                    this.canMovePrev = canMovePrev;
+                    $scope.canMoveNext = canMoveNext;
+                    $scope.canMovePrev = canMovePrev;
+                };
+
+                $scope.moveNext = function() {
+                    setIndex($scope.index + 1);
+                };
+
+                $scope.movePrev = function() {
+                    setIndex($scope.index - 1);
                 };
 
                 // TODO change slide on arrow keys down
@@ -53,23 +60,41 @@ angular.module('app', ['ngAnimate'])
                     switch (e.keyCode) {
                         case 37:
                         case 38:
-                            this.movePrev();
+                            $scope.movePrev();
                             break;
                         case 39:
                         case 40:
-                            this.moveNext();
+                            $scope.moveNext();
                             break;
                     }
                 };
 
-                $http.get('/data/list.json').success(function(data) {
-                    $scope.data = data.main;
-                    $scope.setIndex(0);
+                $scope.$watch('current', function(value) {
+                    setIndex(value);
+                });
+
+                $scope.$watch('slides', function() {
+                    setIndex($scope.current || 0);
                 });
             }]
         }
     })
 
-    .controller('AppController', ['$scope', function($scope) {
-
+    .controller('AppController', ['$scope', '$http', function($scope, $http) {
+        $http.get('/data/list.json').success(function(data) {
+            $scope.main = {
+                slides: data.main,
+                context: {
+                    showDetails: function(index) {
+                        $scope.details.current = index;
+                        $scope.details.isVisible = true;
+                    }
+                }
+            };
+            $scope.details = {
+                slides: data.details,
+                current: 0,
+                isVisible: false
+            };
+        });
     }]);

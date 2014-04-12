@@ -12,7 +12,13 @@
 <body>
     <div ng-app="app" ng-controller="AppController">
         <div ng-app="app">
-            <div slide-viewer navigator-flip="false" navigator-loop="false" sketch-show="showSketch"></div>
+            <div slide-viewer
+                 navigator-flip="false"
+                 navigator-loop="false"
+                 sketch-show="showSketch"
+                 slides="main.slides"
+                 context="main.context">
+            </div>
         </div>
 
         <!-- development panel -->
