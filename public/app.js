@@ -14,13 +14,22 @@ angular.module('app', ['ngAnimate'])
             var canMoveNext = true;
             var canMovePrev = true;
 
-            if (index <= 0) {
-                index = 0;
-                canMovePrev = false;
-            }
-            if (index >= indexSup) {
-                index = indexSup;
-                canMoveNext = false;
+            if (this.loopNavigator) {
+                if (index < 0) {
+                    index = indexSup;
+                }
+                if (index > indexSup) {
+                    index = 0;
+                }
+            } else {
+                if (index <= 0) {
+                    index = 0;
+                    canMovePrev = false;
+                }
+                if (index >= indexSup) {
+                    index = indexSup;
+                    canMoveNext = false;
+                }
             }
 
             this.prevIndex = this.index;
@@ -42,6 +51,9 @@ angular.module('app', ['ngAnimate'])
                     break;
             }
         };
+
+        $scope.flipNavigator = true;
+        $scope.loopNavigator = $scope.flipNavigator;
 
         // Slide sketch visibility
         $scope.sketch = false;

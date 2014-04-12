@@ -14,12 +14,12 @@
         <div class="viewer" ng-if="data">
 
             <!-- navigator -->
-            <div class="navigator">
+            <div class="navigator" ng-class="{flip: flipNavigator}">
                 <a class="arrow arrow-up" ng-click="movePrev()" ng-show="canMovePrev"></a>
                 <a class="arrow" ng-click="moveNext()" ng-show="canMoveNext"></a>
                 <div class="slider">
                     <div class="scale" style="height: {{29 * (data.length - 1) + 1}}px"></div>
-                    <div class="pointer" style="top: {{29 * index}}px"></div>
+                    <div class="pointer" style="top: {{29 * (flipNavigator ? data.length-1-index : index)}}px"></div>
                 </div>
             </div>
 

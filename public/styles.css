@@ -9,10 +9,23 @@
     right: 0;
     z-index: 2;
 }
+.viewer .navigator.flip {
+    margin-right: 5px;
+}
 
 .viewer .navigator .slider {
     position: relative;
     margin-top: 25px;
+}
+.viewer .navigator.flip .slider {
+    position: absolute;
+    margin-top: -70px;
+    margin-left: -25px;
+    -webkit-transform: scaleY(-1) rotate(90deg);
+    -moz-transform: scaleY(-1) rotate(90deg);
+    -o-transform: scaleY(-1) rotate(90deg);
+    -ms-transform: scaleY(-1) rotate(90deg);
+    transform: scaleY(-1) rotate(90deg);
 }
 
 .viewer .navigator .slider .scale {
@@ -34,22 +47,56 @@
     right: 14px;
 }
 
+/* arrow */
 .viewer .navigator .arrow {
+    background-color: #393939;
+    position: relative;
+    overflow: hidden;
     display: block;
     cursor: pointer;
-    background-image: url("/images/arrow.png");
     width: 55px;
     height: 70px;
     margin: 1px;
 }
+.viewer .navigator.flip .arrow
+{
+    display: inline-block;
+    margin-right: -4px;
+}
 
-.viewer .navigator .arrow-up {
+/* arrow down/left */
+.viewer .navigator .arrow:before {
+    background: url("/images/arrow.png") center no-repeat;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.viewer .navigator.flip .arrow:before {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+/* arrow up/right */
+.viewer .navigator .arrow-up:before {
+
     -moz-transform: scaleY(-1);
     -o-transform: scaleY(-1);
     -webkit-transform: scaleY(-1);
     transform: scaleY(-1);
     filter: FlipV;
     -ms-filter: "FlipV";
+}
+.viewer .navigator.flip .arrow-up:before
+{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
 .viewer .slide {
