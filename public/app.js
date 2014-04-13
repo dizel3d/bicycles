@@ -54,7 +54,6 @@ angular.module('app', ['ngAnimate'])
                 var setIndexQuickly = function(value) {
                     $scope.index = setIndex(value);
                     $scope.prevIndex = undefined;
-                    return $scope.index;
                 };
 
                 $scope.moveNext = function() {
@@ -93,19 +92,37 @@ angular.module('app', ['ngAnimate'])
             templateUrl: 'templates/slide-info.html',
             replace: true,
             transclude: true,
-            controller: ['$scope', function($scope) {
+
+            controller: ['$scope', '$timeout', function($scope, $timeout) {
                 $scope.showInfo = true;
+
+                var showSlideInfoValue = true;
+                var showSlideInfoTimer = null;
+
+                $scope.showSlideInfo = function() {
+                    var value = $scope.$parent.$index === $scope.$parent.index;
+
+                    if (value && !showSlideInfoValue) {
+                        showSlideInfoTimer && showSlideInfoTimer.cancel();
+                        showSlideInfoTimer = null;
+                        $timeout(function() { showSlideInfoValue = true; }, 200)
+                    } else {
+                        showSlideInfoValue = value;
+                    }
+
+                    return showSlideInfoValue;
+                };
             }]
         };
     })
 
     .controller('AppController', ['$scope', '$http', function($scope, $http) {
-        $scope.showSketch = true;
+        $scope.showSketch = false;
 
         $http.get('/data/list.json').success(function(data) {
             $scope.main = {
                 slides: data.main,
-                current: 5,
+                current: 0,
                 context: {
                     showDetails: function(index) {
                         $scope.detail.current = index;

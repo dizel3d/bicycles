@@ -19,7 +19,7 @@
     right: 0;
     z-index: 2;
 }
-.viewer .navigator.flip {
+.viewer.flip .navigator {
     margin-right: 5px;
 }
 
@@ -27,7 +27,7 @@
     position: relative;
     margin-top: 25px;
 }
-.viewer .navigator.flip .slider {
+.viewer.flip .navigator .slider {
     position: absolute;
     margin-top: -64px;
     margin-left: -33px;
@@ -68,7 +68,7 @@
     height: 70px;
     margin: 1px;
 }
-.viewer .navigator.flip .navigator-btn {
+.viewer.flip .navigator .navigator-btn {
     display: inline-block;
     margin-right: -4px;
 }
@@ -81,7 +81,7 @@
     width: 100%;
     height: 100%;
 }
-.viewer .navigator.flip .arrow:before {
+.viewer.flip .navigator .arrow:before {
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
@@ -98,7 +98,7 @@
     filter: FlipV;
     -ms-filter: "FlipV";
 }
-.viewer .navigator.flip .arrow-up:before
+.viewer.flip .navigator .arrow-up:before
 {
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
@@ -138,9 +138,17 @@
     opacity: 0;
     top: 900px;
 }
+.viewer.flip .slide-container.animate-show.ng-hide {
+    margin-left: 1600px;
+    top: 0;
+}
 
 .viewer .slide-container.animate-show.up.ng-hide {
     top: -900px;
+}
+.viewer.flip .slide-container.animate-show.up.ng-hide {
+    margin-left: -1600px;
+    top: 0;
 }
 
 /**
@@ -162,17 +170,17 @@
     right: 56px;
 }
 
-.slide-info .info-content {
+.slide-info .animate-show {
     display: block !important;
 }
 
-.slide-info .info-content.animate-show {
+.slide-info .animate-show {
     -webkit-transition: all linear 0.2s;
     transition: all linear 0.2s;
     opacity: 1;
 }
 
-.slide-info .info-content.animate-show.ng-hide {
+.slide-info .animate-show.ng-hide {
     -webkit-transition: all linear 0.2s;
     transition: all linear 0.2s;
     opacity: 0;

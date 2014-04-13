@@ -1,7 +1,7 @@
-<div class="viewer">
+<div class="viewer" ng-class="{flip: navigatorFlip}">
     <div ng-if="slides">
         <!-- navigator -->
-        <div class="navigator" ng-class="{flip: navigatorFlip}">
+        <div class="navigator">
             <a class="navigator-btn arrow arrow-up" ng-click="movePrev()" ng-show="canMovePrev"></a>
             <a class="navigator-btn arrow" ng-click="moveNext()" ng-show="canMoveNext"></a>
             <a class="navigator-btn cross" ng-if="!hideCloseButton" ng-click="close()"></a>
