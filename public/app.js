@@ -91,7 +91,7 @@ angular.module('app', ['ngAnimate'])
     })
 
     .controller('AppController', ['$scope', '$http', function($scope, $http) {
-        $scope.showSketch = true;
+        $scope.showSketch = false;
 
         $http.get('/data/list.json').success(function(data) {
             $scope.main = {
