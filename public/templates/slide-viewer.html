@@ -2,8 +2,9 @@
     <div ng-if="slides">
         <!-- navigator -->
         <div class="navigator" ng-class="{flip: navigatorFlip}">
-            <a class="arrow arrow-up" ng-click="movePrev()" ng-show="canMovePrev"></a>
-            <a class="arrow" ng-click="moveNext()" ng-show="canMoveNext"></a>
+            <a class="navigator-btn arrow arrow-up" ng-click="movePrev()" ng-show="canMovePrev"></a>
+            <a class="navigator-btn arrow" ng-click="moveNext()" ng-show="canMoveNext"></a>
+            <a class="navigator-btn cross" ng-if="!hideCloseButton" ng-click="close()"></a>
             <div class="slider">
                 <div class="scale" style="height: {{29 * (slides.length - 1) + 1}}px"></div>
                 <div class="pointer" style="top: {{29 * (navigatorFlip ? slides.length-1-index : index)}}px"></div>

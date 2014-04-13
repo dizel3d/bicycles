@@ -25,6 +25,7 @@
             <div slide-viewer ng-show="detail.visible"
                  navigator-flip="true"
                  navigator-loop="true"
+                 on-close="detail.close()"
                  sketch-show="showSketch"
                  slides="detail.slides"
                  current="detail.current">
@@ -34,6 +35,7 @@
             <div slide-viewer
                  navigator-flip="false"
                  navigator-loop="false"
+                 hide-close-button="true"
                  sketch-show="showSketch"
                  slides="main.slides"
                  current="main.current"

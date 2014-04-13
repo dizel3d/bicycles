@@ -10,7 +10,9 @@ angular.module('app', ['ngAnimate'])
                 sketchShow: '=', // slide sketch visibility
                 current: '=', // current slide index
                 slides: '=', // slide array
-                context: '=' // slide context
+                context: '=', // slide context
+                hideCloseButton: '=', // close button visibility
+                close: '&onClose' // close button click event
             },
 
             controller: ['$scope', '$timeout', function($scope, $timeout) {

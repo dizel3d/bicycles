@@ -29,8 +29,8 @@
 }
 .viewer .navigator.flip .slider {
     position: absolute;
-    margin-top: -70px;
-    margin-left: -25px;
+    margin-top: -64px;
+    margin-left: -33px;
     -webkit-transform: scaleY(-1) rotate(90deg);
     -moz-transform: scaleY(-1) rotate(90deg);
     -o-transform: scaleY(-1) rotate(90deg);
@@ -58,7 +58,7 @@
 }
 
 /* arrow */
-.viewer .navigator .arrow {
+.viewer .navigator .navigator-btn {
     background-color: #393939;
     position: relative;
     overflow: hidden;
@@ -68,7 +68,7 @@
     height: 70px;
     margin: 1px;
 }
-.viewer .navigator.flip .arrow {
+.viewer .navigator.flip .navigator-btn {
     display: inline-block;
     margin-right: -4px;
 }
@@ -105,6 +105,10 @@
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
+}
+
+.viewer .navigator .cross {
+    background: #393939 url("images/cross.png") center no-repeat;
 }
 
 .viewer .slide-container {
