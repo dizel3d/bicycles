@@ -172,9 +172,6 @@
 
 .slide-info .animate-show {
     display: block !important;
-}
-
-.slide-info .animate-show {
     -webkit-transition: all linear 0.2s;
     transition: all linear 0.2s;
     opacity: 1;
@@ -183,6 +180,18 @@
 .slide-info .animate-show.ng-hide {
     -webkit-transition: all linear 0.2s;
     transition: all linear 0.2s;
+    opacity: 0;
+}
+
+.slide-info .info-content.animate-show {
+    -webkit-transition: .4s ease-out 0.3s;
+    transition: .4s ease-out 0.3s;
+    opacity: 1;
+}
+
+.slide-info .info-content.animate-show.ng-hide {
+    -webkit-transition: all linear 0s;
+    transition: all linear 0s;
     opacity: 0;
 }
 

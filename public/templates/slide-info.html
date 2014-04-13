@@ -1,6 +1,6 @@
 <div class="slide-info">
-    <div class="animate-show" ng-show="showSlideInfo()">
-        <div class="info-content animate-show" ng-show="showInfo" ng-transclude></div>
+    <div class="info-content animate-show" ng-show="$parent.$index === $parent.index">
+        <div class="animate-show" ng-show="showInfo" ng-transclude></div>
         <a class="info-btn" ng-class="{'info-show-btn': !showInfo, 'info-close-btn': showInfo}" ng-click="showInfo = !showInfo"></a>
     </div>
 </div>

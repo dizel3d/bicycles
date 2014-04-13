@@ -98,26 +98,8 @@ angular.module('app', ['ngAnimate'])
             templateUrl: 'templates/slide-info.html',
             replace: true,
             transclude: true,
-
-            controller: ['$scope', '$timeout', function($scope, $timeout) {
+            controller: ['$scope', function($scope) {
                 $scope.showInfo = true;
-
-                var showSlideInfoValue = true;
-                var showSlideInfoTimer = null;
-
-                $scope.showSlideInfo = function() {
-                    var value = $scope.$parent.$index === $scope.$parent.index;
-
-                    if (value && !showSlideInfoValue) {
-                        showSlideInfoTimer && showSlideInfoTimer.cancel();
-                        showSlideInfoTimer = null;
-                        $timeout(function() { showSlideInfoValue = true; }, 200)
-                    } else {
-                        showSlideInfoValue = value;
-                    }
-
-                    return showSlideInfoValue;
-                };
             }]
         };
     })
