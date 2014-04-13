@@ -39,7 +39,7 @@
 }
 
 .viewer .navigator .slider .scale {
-    background-image: url("/images/scale.png");
+    background-image: url("images/scale.png");
     width: 14px;
     height: 1px;
     position: absolute;
@@ -48,7 +48,7 @@
 }
 
 .viewer .navigator .slider .pointer {
-    background-image: url("/images/slider.png");
+    background-image: url("images/slider.png");
     width: 27px;
     height: 15px;
     position: absolute;
@@ -68,15 +68,14 @@
     height: 70px;
     margin: 1px;
 }
-.viewer .navigator.flip .arrow
-{
+.viewer .navigator.flip .arrow {
     display: inline-block;
     margin-right: -4px;
 }
 
 /* arrow down/left */
 .viewer .navigator .arrow:before {
-    background: url("/images/arrow.png") center no-repeat;
+    background: url("images/arrow.png") center no-repeat;
     content: "";
     position: absolute;
     width: 100%;
@@ -92,7 +91,6 @@
 
 /* arrow up/right */
 .viewer .navigator .arrow-up:before {
-
     -moz-transform: scaleY(-1);
     -o-transform: scaleY(-1);
     -webkit-transform: scaleY(-1);
@@ -147,36 +145,36 @@
 
 .slide .logo {
     position: absolute;
-    background: url("/images/logo.png") center no-repeat;
+    background: url("images/logo.png") center no-repeat;
     width: 103px;
     height: 100px;
     left: 25px;
     top: 20px;
 }
 
-.slide .info {
+.slide-info {
     position: absolute;
     margin: 1px;
     right: 56px;
 }
 
-.slide .info-content {
+.slide-info .info-content {
     display: block !important;
 }
 
-.slide .info-content.animate-show {
+.slide-info .info-content.animate-show {
     -webkit-transition: all linear 0.2s;
     transition: all linear 0.2s;
     opacity: 1;
 }
 
-.slide .info-content.animate-show.ng-hide {
+.slide-info .info-content.animate-show.ng-hide {
     -webkit-transition: all linear 0.2s;
     transition: all linear 0.2s;
     opacity: 0;
 }
 
-.slide .info-btn {
+.slide-info .info-btn {
     display: block;
     position: absolute;
     width: 55px;
@@ -186,11 +184,51 @@
     cursor: pointer;
 }
 
-.slide .info-btn.info-close-btn {
-    background: url("/images/cross.png") center no-repeat;
+.slide-info .info-btn.info-close-btn {
+    background: url("images/cross.png") center no-repeat;
 }
 
-.slide .info-btn.info-show-btn {
-    background: url("/images/list.png") center no-repeat;
-    background-color: #393939;
+.slide-info .info-btn.info-show-btn {
+    background: #393939 url("images/list.png") center no-repeat;
+}
+
+.slide-hint {
+    position: absolute;
+    vertical-align: middle;
+    font: 16pt pt-sans-narrow;
+    -webkit-filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.3));
+    filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.3));
+}
+
+.slide-hint .hint-content {
+    background-color: #f1c300;
+    line-height: 53px;
+    padding: 0 24px;
+}
+
+.slide-hint .hint-content:before {
+    content: "";
+    background: black url("images/plus.png") center no-repeat;
+    width: 57px;
+    height: 53px;
+    margin: 0 -24px 0 24px;
+    float: right;
+}
+.slide-hint .hint-content.flip:before {
+    margin: 0 24px 0 -24px;
+    float: left;
+}
+
+.slide-hint .hint-pointer {
+    background: url("images/pointer.png") center no-repeat;
+    width: 21px;
+    height: 11px;
+}
+.slide-hint .hint-pointer.flip {
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: FlipV;
+    -ms-filter: "FlipV";
 }

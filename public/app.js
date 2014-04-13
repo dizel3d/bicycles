@@ -83,6 +83,7 @@ angular.module('app', ['ngAnimate'])
     .directive('slideInfo', function() {
         return {
             templateUrl: 'templates/slide-info.html',
+            replace: true,
             transclude: true,
             controller: ['$scope', function($scope) {
                 $scope.showInfo = true;
@@ -91,12 +92,12 @@ angular.module('app', ['ngAnimate'])
     })
 
     .controller('AppController', ['$scope', '$http', function($scope, $http) {
-        $scope.showSketch = false;
+        $scope.showSketch = true;
 
         $http.get('/data/list.json').success(function(data) {
             $scope.main = {
                 slides: data.main,
-                current: 1,
+                current: 5,
                 context: {
                     showDetails: function(index) {
                         $scope.details.current = index;
