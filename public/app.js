@@ -84,10 +84,10 @@ angular.module('app', ['ngAnimate'])
                     }
                 };
 
-                $scope.$watch('current', setIndex);
+                $scope.$watch('current', setIndexQuickly);
 
                 $scope.$watch('slides', function() {
-                    setIndex($scope.current || 0);
+                    setIndexQuickly($scope.current || 0);
                 });
             }]
         };
