@@ -1,4 +1,4 @@
-angular.module('app', [])
+angular.module('app', ['ngAnimate'])
 
     .directive('slideViewer', function() {
         return {
@@ -84,10 +84,10 @@ angular.module('app', [])
                     }
                 };
 
-                $scope.$watch('current', setIndexQuickly);
+                $scope.$watch('current', setIndex);
 
                 $scope.$watch('slides', function() {
-                    setIndexQuickly($scope.current || 0);
+                    setIndex($scope.current || 0);
                 });
             }]
         };
