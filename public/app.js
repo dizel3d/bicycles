@@ -1,4 +1,4 @@
-angular.module('app', ['ngAnimate'])
+angular.module('app', [])
 
     .directive('slideViewer', function() {
         return {
