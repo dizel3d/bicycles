@@ -16,6 +16,8 @@ angular.module('app', [])
             },
 
             controller: ['$scope', '$timeout', function($scope, $timeout) {
+                var lastAppliedIndex;
+
                 var setIndex = function(index) {
                     if (!$scope.slides || isNaN(index)) {
                         return;
@@ -47,13 +49,17 @@ angular.module('app', [])
                     $timeout(function() { $scope.index = index; }, 0);
                     $scope.canMoveNext = canMoveNext;
                     $scope.canMovePrev = canMovePrev;
+                    $scope.current = index;
+                    lastAppliedIndex = index;
 
                     return index;
                 };
 
                 var setIndexQuickly = function(value) {
-                    $scope.index = setIndex(value);
-                    $scope.prevIndex = undefined;
+                    if (lastAppliedIndex !== value) {
+                        $scope.index = setIndex(value);
+                        $scope.prevIndex = undefined;
+                    }
                 };
 
                 $scope.moveNext = function() {
