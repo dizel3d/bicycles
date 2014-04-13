@@ -33,38 +33,30 @@
             "templateUrl": "/templates/slide-8.html"
         }
     ],
-    "details": [
+    "detail": [
         {
-            "sketchUrl": "/design/scr/scr1.jpg",
-            "templateUrl": "/templates/slide-1.html"
+            "sketchUrl": "/design/scr/scr61.jpg",
+            "templateUrl": "/templates/detail-slide.html"
         },
         {
-            "sketchUrl": "/design/scr/scr2.jpg",
-            "templateUrl": "/templates/slide-2.html"
+            "sketchUrl": "/design/scr/scr62.jpg",
+            "templateUrl": "/templates/detail-slide.html"
         },
         {
-            "sketchUrl": "/design/scr/scr3.jpg",
-            "templateUrl": "/templates/slide-3.html"
+            "sketchUrl": "/design/scr/scr63.jpg",
+            "templateUrl": "/templates/detail-slide.html"
         },
         {
-            "sketchUrl": "/design/scr/scr4.jpg",
-            "templateUrl": "/templates/slide-4.html"
+            "sketchUrl": "/design/scr/scr64.jpg",
+            "templateUrl": "/templates/detail-slide.html"
         },
         {
-            "sketchUrl": "/design/scr/scr5.jpg",
-            "templateUrl": "/templates/slide-5.html"
+            "sketchUrl": "/design/scr/scr65.jpg",
+            "templateUrl": "/templates/detail-slide.html"
         },
         {
-            "sketchUrl": "/design/scr/scr6.jpg",
-            "templateUrl": "/templates/slide-6.html"
-        },
-        {
-            "sketchUrl": "/design/scr/scr7.jpg",
-            "templateUrl": "/templates/slide-7.html"
-        },
-        {
-            "sketchUrl": "/design/scr/scr8.jpg",
-            "templateUrl": "/templates/slide-8.html"
+            "sketchUrl": "/design/scr/scr66.jpg",
+            "templateUrl": "/templates/detail-slide.html"
         }
     ]
 }

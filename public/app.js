@@ -45,6 +45,14 @@ angular.module('app', ['ngAnimate'])
                     $timeout(function() { $scope.index = index; }, 0);
                     $scope.canMoveNext = canMoveNext;
                     $scope.canMovePrev = canMovePrev;
+
+                    return index;
+                };
+
+                var setIndexQuickly = function(value) {
+                    $scope.index = setIndex(value);
+                    $scope.prevIndex = undefined;
+                    return $scope.index;
                 };
 
                 $scope.moveNext = function() {
@@ -69,12 +77,10 @@ angular.module('app', ['ngAnimate'])
                     }
                 };
 
-                $scope.$watch('current', function(value) {
-                    setIndex(value);
-                });
+                $scope.$watch('current', setIndexQuickly);
 
                 $scope.$watch('slides', function() {
-                    setIndex($scope.current || 0);
+                    setIndexQuickly($scope.current || 0);
                 });
             }]
         };
@@ -100,15 +106,18 @@ angular.module('app', ['ngAnimate'])
                 current: 5,
                 context: {
                     showDetails: function(index) {
-                        $scope.details.current = index;
-                        $scope.details.isVisible = true;
+                        $scope.detail.current = index;
+                        $scope.detail.visible = true;
                     }
                 }
             };
-            $scope.details = {
-                slides: data.details,
+            $scope.detail = {
+                slides: data.detail,
                 current: 0,
-                isVisible: false
+                visible: false,
+                close: function() {
+                    $scope.detail.visible = false;
+                }
             };
         });
     }]);

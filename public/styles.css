@@ -196,6 +196,7 @@
     position: absolute;
     vertical-align: middle;
     font: 16pt pt-sans-narrow;
+    cursor: pointer;
     -webkit-filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.3));
     filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.3));
 }
@@ -231,4 +232,13 @@
     transform: scaleY(-1);
     filter: FlipV;
     -ms-filter: "FlipV";
+}
+
+/**
+ * Application
+ */
+
+.slide-viewers {
+    height: 900px;
+    overflow: hidden;
 }

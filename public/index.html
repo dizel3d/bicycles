@@ -19,7 +19,18 @@
 </head>
 <body>
     <div ng-app="app" ng-controller="AppController">
-        <div>
+
+        <div class="slide-viewers">
+            <!-- detail slides viewer -->
+            <div slide-viewer ng-show="detail.visible"
+                 navigator-flip="true"
+                 navigator-loop="true"
+                 sketch-show="showSketch"
+                 slides="detail.slides"
+                 current="detail.current">
+            </div>
+
+            <!-- main slides viewer -->
             <div slide-viewer
                  navigator-flip="false"
                  navigator-loop="false"
