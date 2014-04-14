@@ -1,0 +1,88 @@
+[
+    {
+        "imageUrl": "/images/bicycle-min-1.jpg",
+        "title": "KROSS LEVEL A3",
+        "description": "Спортивный евробайк на Shimano Deore, 24 скорости, блокировка вилки на руле",
+        "colors": ["black", "red"],
+        "price": 14500,
+        "oldPrice": 17883,
+        "rateNumber": 24,
+        "switchType": "",
+        "weight": 14.1,
+        "brakes": "Дисковые гидравлические Avid",
+        "suspensionFork": "Suntour XCM RL, ход 100 мм, блокировка на руле"
+    },
+    {
+        "imageUrl": "/images/bicycle-min-1.jpg",
+        "title": "KROSS LEVEL A4",
+        "description": "Европеец на Shimano Deore XT и Acera, 27 скоростей, отличная навеска",
+        "colors": ["black"],
+        "price": 14500,
+        "oldPrice": 17883,
+        "rateNumber": 24,
+        "switchType": "",
+        "weight": 14.1,
+        "brakes": "Дисковые гидравлические Avid",
+        "suspensionFork": "Suntour XCM RL, ход 100 мм, блокировка на руле"
+    },
+    {
+        "imageUrl": "/images/bicycle-min-1.jpg",
+        "title": "KROSS LEVEL A5",
+        "colors": ["black"],
+        "price": 14500,
+        "oldPrice": 17883,
+        "rateNumber": 24,
+        "switchType": "",
+        "weight": 14.1,
+        "brakes": "Дисковые гидравлические Avid",
+        "suspensionFork": "Suntour XCM RL, ход 100 мм, блокировка на руле"
+    },
+    {
+        "imageUrl": "/images/bicycle-min-1.jpg",
+        "title": "KROSS LEVEL A9",
+        "colors": ["white"],
+        "price": 14500,
+        "oldPrice": 17883,
+        "rateNumber": 24,
+        "switchType": "",
+        "weight": 14.1,
+        "brakes": "Дисковые гидравлические Avid",
+        "suspensionFork": "Suntour XCM RL, ход 100 мм, блокировка на руле"
+    },
+    {
+        "imageUrl": "/images/bicycle-min-1.jpg",
+        "title": "KROSS LEVEL R3",
+        "colors": ["black", "red"],
+        "price": 14500,
+        "oldPrice": 17883,
+        "rateNumber": 24,
+        "switchType": "",
+        "weight": 14.1,
+        "brakes": "Дисковые гидравлические Avid",
+        "suspensionFork": "Suntour XCM RL, ход 100 мм, блокировка на руле"
+    },
+    {
+        "imageUrl": "/images/bicycle-min-1.jpg",
+        "title": "KROSS LEVEL R4",
+        "colors": ["red"],
+        "price": 14500,
+        "oldPrice": 17883,
+        "rateNumber": 24,
+        "switchType": "",
+        "weight": 14.1,
+        "brakes": "Дисковые гидравлические Avid",
+        "suspensionFork": "Suntour XCM RL, ход 100 мм, блокировка на руле"
+    },
+    {
+        "imageUrl": "/images/bicycle-min-1.jpg",
+        "title": "KROSS LEVEL B3",
+        "colors": ["black", "red"],
+        "price": 14500,
+        "oldPrice": 17883,
+        "rateNumber": 24,
+        "switchType": "",
+        "weight": 14.1,
+        "brakes": "Дисковые гидравлические Avid",
+        "suspensionFork": "Suntour XCM RL, ход 100 мм, блокировка на руле"
+    }
+]

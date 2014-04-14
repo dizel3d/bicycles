@@ -1,5 +1,61 @@
-<table>
-    <div>
-
-    </div>
-</table>
+<div class="placeholder" style="background-color: white" ng-controller="BikesController">
+    <table class="bike-table">
+        <tr>
+            <td></td>
+            <td ng-repeat="bike in bikes"><img style="margin-left: -3px" ng-src="{{bike.imageUrl}}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td ng-repeat="bike in bikes">
+                <div style="margin-right: -15px">
+                    <b style="display: block; font-size: 18pt; margin-bottom: 3px">{{bike.title}}</b>
+                    {{bike.description}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="padding: 8px 0" ng-repeat="bike in bikes">
+                <div class="color-blocks">
+                    <span ng-repeat="color in bike.colors" style="background-color: {{color}};"></span>
+                </div>
+                <span ng-switch on="bike.colors.length">
+                    <div ng-switch-when="2">В двух цветах</div>
+                    <div ng-switch-default>Цвет</div>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td ng-repeat="bike in bikes">
+                <div><div style="display: inline-block; margin-top: 5px;">Цена</div><b style="display: inline-block; float: right; background-color: #9a9a9a; font-size: 16pt; color: white; padding: 2px 0; margin-top: -10px; width: 120px; text-align: center;">{{bike.price | money}}</b></div>
+                <div style="margin-bottom: 2px;">Старая цена<span style="font-size: 14pt;"> {{bike.oldPrice | money}}</span></div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td ng-repeat="bike in bikes">
+                <div style="margin: -10px 0 5px 0;">
+                    <div style="font-size: 13pt; float: right; border-left: 1px solid #9a9a9a; padding: 8px 0 0 5px;">{{(100 * bike.price / bike.oldPrice - 100).toFixed()}}%</div>
+                    <div style="padding-top: 8px;">Экономия <span style="font-size: 13pt;"> {{bike.oldPrice - bike.price | money}}</span></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><div>Количество скоростей и тип переключателя</div></td>
+            <td ng-repeat="bike in bikes">{{bike.rateNumber}} {{bike.sitchType}}</td>
+        </tr>
+        <tr>
+            <td><div>Вес велосипеда</div></td>
+            <td ng-repeat="bike in bikes">{{bike.weight | decimal}} кг</td>
+        </tr>
+        <tr>
+            <td><div>Тормоза</div></td>
+            <td ng-repeat="bike in bikes">{{bike.brakes}}</td>
+        </tr>
+        <tr>
+            <td><div>Амортизационная вилка</div></td>
+            <td ng-repeat="bike in bikes">{{bike.suspensionFork}}</td>
+        </tr>
+    </table>
+</div>

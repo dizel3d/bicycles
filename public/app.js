@@ -1,5 +1,31 @@
 angular.module('app', ['ngAnimate'])
 
+    /*.filter('reverse', function() {
+        return function(items) {
+            return items.slice().reverse();
+        };
+    })*/
+
+    .filter('money', function() {
+        var symbol = ' руб.';
+
+        return function(value) {
+            var str = value.toString();
+            var headCount = str.length % 3;
+            var head = str.substr(0, headCount);
+            var tail = str.substr(headCount, str.length - headCount).match(/(\d{3})/g);
+
+            if (!tail) return head + symbol;
+            return head + (head.length > 1 ? ' ' : '') + tail.join(' ') + symbol;
+        };
+    })
+
+    .filter('decimal', function() {
+        return function(value) {
+            return value.toString().replace('.', ',');
+        };
+    })
+
     .directive('slideViewer', function() {
         return {
             templateUrl: 'templates/slide-viewer.html',
@@ -104,13 +130,19 @@ angular.module('app', ['ngAnimate'])
         };
     })
 
-    .controller('AppController', ['$scope', '$http', function($scope, $http) {
-        $scope.showSketch = false;
+    .controller('BikesController', ['$scope', '$http', function($scope, $http) {
+        $http.get('/data/bikes.json').success(function(data) {
+            $scope.bikes = data;
+        });
+    }])
 
-        $http.get('/data/list.json').success(function(data) {
+    .controller('AppController', ['$scope', '$http', function($scope, $http) {
+        $scope.showSketch = true;
+
+        $http.get('/data/slides.json').success(function(data) {
             $scope.main = {
                 slides: data.main,
-                current: 0,
+                current: 8,
                 context: {
                     showDetails: function(index) {
                         $scope.detail.current = index;
