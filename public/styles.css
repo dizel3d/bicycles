@@ -371,6 +371,47 @@
     font-size: 13pt;
 }
 
+.bike-table .bike-buy-td {
+    padding: 0;
+    border: none;
+    font-size: 13pt;
+}
+
+.bike-table .bike-arrow {
+    background: url("images/next.png") center no-repeat;
+    width: 46px;
+    height: 65px;
+    float: left;
+}
+
+.bike-table .bike-buy {
+    display: block;
+    background-color: #ef4849;
+    color: white;
+    margin-left: 47px;
+    padding-top: 5px;
+    height: 25px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.bike-table .bike-buy:after {
+    content: "";
+    background: url("images/buy.png") center no-repeat;
+    width: 31px;
+    height: 30px;
+    margin-top: -5px;
+    float: right;
+    border-left: 1px solid white;
+}
+
+.bike-table .bike-more {
+    margin: 2px 0 0 47px;
+    padding: 6px 0 3px 15px;
+    border-left: 1px solid #9a9a9a;
+    cursor: pointer;
+}
+
 /**
  * Application
  */

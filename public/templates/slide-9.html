@@ -57,5 +57,13 @@
             <td class="tail-td"><div>Амортизационная вилка</div></td>
             <td class="tail-td last-td" ng-repeat="bike in bikes">{{bike.suspensionFork}}</td>
         </tr>
+        <tr>
+            <td></td>
+            <td ng-repeat="bike in bikes" class="bike-buy-td">
+                <div class="bike-arrow"></div>
+                <a class="bike-buy" ng-href="{{bike.url}}">КУПИТЬ</a>
+                <div class="bike-more" ng-click="bikeMore()">ПОДРОБНЕЕ</div>
+            </td>
+        </tr>
     </table>
 </div>
