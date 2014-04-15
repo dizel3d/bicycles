@@ -278,7 +278,8 @@
     width: 120px;
     color: #757575;
     text-align: right;
-    padding-bottom: 0;
+    line-height: 16px;
+    border: none;
 }
 
 .bike-table td:first-child > * {
@@ -297,6 +298,77 @@
     width: 34px;
     height: 17px;
     display: inline-block;
+}
+
+.bike-table .tail-td {
+    padding: 6px 0;
+    line-height: 14pt;
+}
+
+.bike-table .last-td {
+    padding-bottom: 27px;
+}
+
+.bike-table .bike-image {
+    margin-left: -3px;
+}
+
+.bike-table .bike-title {
+    margin-right: -17px;
+}
+
+.bike-table .bike-title b {
+    display: block;
+    font-size: 18pt;
+    margin-bottom: 3px;
+}
+
+.bike-table .colors-td {
+    padding: 8px 0;
+}
+
+.bike-table .bike-price div {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.bike-table .bike-price b {
+    display: inline-block;
+    float: right;
+    background-color: #9a9a9a;
+    font-size: 16pt;
+    color: white;
+    padding: 2px 0;
+    margin-top: -10px;
+    width: 120px;
+    text-align: center;
+}
+
+.bike-table .bike-old-price {
+    margin-bottom: 2px;
+}
+
+.bike-table .bike-old-price span {
+    font-size: 14pt;
+}
+
+.bike-table .bike-sale {
+    margin: -10px 0 5px 0;
+}
+
+.bike-table .bike-sale-percent {
+    font-size: 13pt;
+    float: right;
+    border-left: 1px solid #9a9a9a;
+    padding: 8px 0 0 6px;
+}
+
+.bike-table .bike-sale-money {
+    padding-top: 8px;
+}
+
+.bike-table .bike-sale-money span {
+    font-size: 13pt;
 }
 
 /**
