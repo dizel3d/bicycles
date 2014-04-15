@@ -1,12 +1,32 @@
 <div class="placeholder" style="background-color: white" ng-controller="BikesController">
+    <div class="bike-left-line bike-hover"></div>
+    <div class="bike-right-line bike-hover" style="left: {{145 + 197 * bikes.length}}px;"></div>
+
+    <div ng-repeat="bike in bikes"
+         class="bike-line bike-hover"
+         ng-mouseenter="bike.hover = true"
+         ng-mouseleave="bike.hover = false"
+         ng-class="{'hover-active': bike.hover}"
+         style="left: {{145 + 197 * $index}}px;">
+    </div>
+
     <table class="bike-table">
         <tr>
             <td></td>
-            <td ng-repeat="bike in bikes"><img class="bike-image" ng-src="{{bike.imageUrl}}"></td>
+            <td ng-repeat="bike in bikes"
+                ng-mouseenter="bike.hover = true"
+                ng-mouseleave="bike.hover = false">
+                <div class="bike-image" style="position: relative">
+                    <div class="bike-hover" ng-class="{'hover-active': bike.hover}"></div>
+                    <img ng-src="{{bike.imageUrl}}" />
+                </div>
+            </td>
         </tr>
         <tr>
             <td></td>
-            <td ng-repeat="bike in bikes">
+            <td ng-repeat="bike in bikes"
+                ng-mouseenter="bike.hover = true"
+                ng-mouseleave="bike.hover = false">
                 <div class="bike-title">
                     <b>{{bike.title}}</b>
                     {{bike.description}}
@@ -15,7 +35,10 @@
         </tr>
         <tr>
             <td></td>
-            <td ng-repeat="bike in bikes" class="colors-td">
+            <td ng-repeat="bike in bikes"
+                class="colors-td"
+                ng-mouseenter="bike.hover = true"
+                ng-mouseleave="bike.hover = false">
                 <div class="color-blocks">
                     <span ng-repeat="color in bike.colors" style="background-color: {{color}};"></span>
                 </div>
@@ -27,14 +50,18 @@
         </tr>
         <tr>
             <td></td>
-            <td ng-repeat="bike in bikes">
+            <td ng-repeat="bike in bikes"
+                ng-mouseenter="bike.hover = true"
+                ng-mouseleave="bike.hover = false">
                 <div class="bike-price"><div>Цена</div><b>{{bike.price | money}}</b></div>
                 <div class="bike-old-price">Старая цена<span> {{bike.oldPrice | money}}</span></div>
             </td>
         </tr>
         <tr>
             <td></td>
-            <td ng-repeat="bike in bikes">
+            <td ng-repeat="bike in bikes"
+                ng-mouseenter="bike.hover = true"
+                ng-mouseleave="bike.hover = false">
                 <div class="bike-sale">
                     <div class="bike-sale-percent">{{(100 * bike.price / bike.oldPrice - 100).toFixed()}}%</div>
                     <div class="bike-sale-money">Экономия<span> {{bike.oldPrice - bike.price | money}}</span></div>
@@ -43,23 +70,44 @@
         </tr>
         <tr>
             <td><div>Кол-во скоростей и тип переключателя</div></td>
-            <td ng-repeat="bike in bikes">{{bike.rateNumber}} {{bike.switchType}}</td>
+            <td ng-repeat="bike in bikes"
+                ng-mouseenter="bike.hover = true"
+                ng-mouseleave="bike.hover = false">
+                {{bike.rateNumber}} {{bike.switchType}}
+            </td>
         </tr>
         <tr>
             <td class="tail-td"><div>Вес велосипеда</div></td>
-            <td class="tail-td" ng-repeat="bike in bikes">{{bike.weight | decimal}} кг</td>
+            <td ng-repeat="bike in bikes"
+                class="tail-td"
+                ng-mouseenter="bike.hover = true"
+                ng-mouseleave="bike.hover = false">
+                {{bike.weight | decimal}} кг
+            </td>
         </tr>
         <tr>
             <td class="tail-td"><div>Тормоза</div></td>
-            <td class="tail-td" ng-repeat="bike in bikes">{{bike.brakes}}</td>
+            <td class="tail-td" ng-repeat="bike in bikes"
+                ng-mouseenter="bike.hover = true"
+                ng-mouseleave="bike.hover = false">
+                {{bike.brakes}}
+            </td>
         </tr>
         <tr>
             <td class="tail-td"><div>Амортизационная вилка</div></td>
-            <td class="tail-td last-td" ng-repeat="bike in bikes">{{bike.suspensionFork}}</td>
+            <td class="tail-td last-td"
+                ng-repeat="bike in bikes"
+                ng-mouseenter="bike.hover = true"
+                ng-mouseleave="bike.hover = false">
+                {{bike.suspensionFork}}
+            </td>
         </tr>
         <tr>
             <td></td>
-            <td ng-repeat="bike in bikes" class="bike-buy-td">
+            <td ng-repeat="bike in bikes"
+                class="bike-buy-td"
+                ng-mouseenter="bike.hover = true"
+                ng-mouseleave="bike.hover = false">
                 <div class="bike-arrow"></div>
                 <a class="bike-buy" ng-href="{{bike.url}}">КУПИТЬ</a>
                 <div class="bike-more" ng-click="bikeMore()">ПОДРОБНЕЕ</div>

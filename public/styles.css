@@ -412,6 +412,44 @@
     cursor: pointer;
 }
 
+.bike-hover {
+    background-color: black;
+    opacity: 0.1;
+}
+
+.bike-hover.hover-active {
+    opacity: 0.05;
+}
+
+.bike-line {
+    position: absolute;
+    height: 900px;
+    width: 197px;
+}
+
+.bike-left-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 145px;
+}
+
+.bike-right-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.bike-image .bike-hover {
+    position: absolute;
+    background-color: black;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 5px;
+}
+
 /**
  * Application
  */
@@ -420,4 +458,3 @@
     height: 900px;
     overflow: hidden;
 }
-
