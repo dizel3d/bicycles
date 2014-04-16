@@ -12,9 +12,8 @@
         </div>
 
         <!-- slides -->
-        <div ng-repeat="slide in slides">
-            <div class="slide-container"
-                 ng-class="{active: $index === index, 'animate-show': prevIndex !== undefined, up: prevIndex > index}"
+        <div ng-repeat="slide in slides" class="slide-container" ng-class="{active: $index === index}">
+            <div ng-class="{'animate-slide': prevIndex !== undefined, up: prevIndex > index}"
                  ng-show="$index === index || $index === prevIndex">
 
                 <!-- slide sketch -->
