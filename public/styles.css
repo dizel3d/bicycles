@@ -6,7 +6,6 @@
     display: inline-block;
     position: relative;
     overflow: hidden;
-    font-family: pt-sans-narrow;
 }
 
 .viewer .placeholder {
@@ -156,6 +155,10 @@
 /**
  * Slide
  */
+
+.slide {
+    font-family: pt-sans-narrow;
+}
 
 .slide .logo {
     position: absolute;
