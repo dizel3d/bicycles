@@ -131,32 +131,63 @@ angular.module('app', ['ngAnimate'])
     })
 
     .controller('BikesController', ['$scope', '$http', function($scope, $http) {
-        $http.get('/data/bikes.json').success(function(data) {
-            $scope.bikes = data;
-        });
+        $scope.$watch('context.bikes', function(value) {
+            $scope.bikes = value;
+        })
     }])
 
     .controller('AppController', ['$scope', '$http', function($scope, $http) {
         $scope.showSketch = true;
 
         $http.get('/data/slides.json').success(function(data) {
+            // main slides
             $scope.main = {
                 slides: data.main,
                 current: 8,
                 context: {
                     showDetails: function(index) {
-                        $scope.detail.current = index;
-                        $scope.detail.visible = true;
+                        angular.extend($scope.detail, {
+                            current: index,
+                            visible: true
+                        });
+                    },
+                    showBike: function(index) {
+                        angular.extend($scope.bike, {
+                            current: index,
+                            visible: true
+                        });
                     }
                 }
             };
+
+            // detail slides
             $scope.detail = {
                 slides: data.detail,
                 current: 0,
-                visible: false,
-                close: function() {
-                    $scope.detail.visible = false;
-                }
+                visible: false
             };
+
+            // bike slide common info
+            var bikeSlide = data.bike;
+
+            $http.get('/data/bikes.json').success(function(bikes) {
+                $scope.main.context.bikes = bikes;
+
+                var slides = new Array(bikes.length);
+                for (var i = 0; i < bikes.length; ++i) {
+                    slides[i] = angular.extend({}, bikeSlide);
+                }
+
+                // bike slides
+                $scope.bike = {
+                    slides: slides,
+                    current: 0,
+                    visible: false
+                };
+
+                $scope.$watch('bike.current', function(index) {
+                    $scope.bike.context = bikes[index];
+                });
+            });
         });
     }]);

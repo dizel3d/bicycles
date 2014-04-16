@@ -110,7 +110,7 @@
                 ng-mouseleave="bike.hover = false">
                 <div class="bike-arrow"></div>
                 <a class="bike-buy" ng-href="{{bike.url}}">КУПИТЬ</a>
-                <div class="bike-more" ng-click="bikeMore()">ПОДРОБНЕЕ</div>
+                <div class="bike-more" ng-click="context.showBike($index)">ПОДРОБНЕЕ</div>
             </td>
         </tr>
     </table>

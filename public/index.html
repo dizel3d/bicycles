@@ -21,11 +21,22 @@
     <div ng-app="app" ng-controller="AppController">
 
         <div class="slide-viewers">
+            <!-- bike slides viewer -->
+            <div slide-viewer ng-show="bike.visible"
+                 navigator-flip="true"
+                 navigator-loop="true"
+                 on-close="bike.visible = false"
+                 sketch-show="showSketch"
+                 slides="bike.slides"
+                 current="bike.current"
+                 context="bike.context">
+            </div>
+
             <!-- detail slides viewer -->
             <div slide-viewer ng-show="detail.visible"
                  navigator-flip="true"
                  navigator-loop="true"
-                 on-close="detail.close()"
+                 on-close="detail.visible = false"
                  sketch-show="showSketch"
                  slides="detail.slides"
                  current="detail.current">

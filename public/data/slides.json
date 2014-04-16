@@ -62,5 +62,9 @@
             "sketchUrl": "/design/scr/scr66.jpg",
             "templateUrl": "/templates/detail-slide.html"
         }
-    ]
+    ],
+    "bike": {
+        "sketchUrl": "/design/scr/scr11.jpg",
+        "templateUrl": "/templates/bike-slide.html"
+    }
 }
