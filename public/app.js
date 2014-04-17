@@ -130,9 +130,15 @@ angular.module('app', ['ngAnimate'])
         };
     })
 
-    .controller('BikesController', ['$scope', '$http', function($scope, $http) {
+    .controller('BikesController', ['$scope', function($scope) {
         $scope.$watch('context.bikes', function(value) {
             $scope.bikes = value;
+        })
+    }])
+
+    .controller('BikeController', ['$scope', function($scope) {
+        $scope.$watch('context.bikes', function(bikes) {
+            $scope.bike = bikes[$scope.$parent.$index];
         })
     }])
 
@@ -182,12 +188,11 @@ angular.module('app', ['ngAnimate'])
                 $scope.bike = {
                     slides: slides,
                     current: 0,
-                    visible: false
+                    visible: false,
+                    context: {
+                        bikes: bikes
+                    }
                 };
-
-                $scope.$watch('bike.current', function(index) {
-                    $scope.bike.context = bikes[index];
-                });
             });
         });
     }]);

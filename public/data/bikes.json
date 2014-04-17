@@ -17,7 +17,7 @@
     {
         "url": "bikes/bike-2.html",
         "imageUrl": "/images/bicycle-min-1.jpg",
-        "largeImageUrl": "/images/bike-1.jpg",
+        "largeImageUrl": "/images/bicycle-3.jpg",
         "title": "KROSS LEVEL A4",
         "description": "Европеец на Shimano Deore XT и Acera, 27 скоростей, отличная навеска.",
         "colors": ["black"],
@@ -32,7 +32,7 @@
     {
         "url": "bikes/bike-3.html",
         "imageUrl": "/images/bicycle-min-1.jpg",
-        "largeImageUrl": "/images/bike-1.jpg",
+        "largeImageUrl": "/images/bicycle-4.jpg",
         "title": "KROSS LEVEL A5",
         "description": "Продвинутый байк на Shimano Deore XT и Alivio, 27 скоростей. Вилка RockShox.",
         "colors": ["black"],
@@ -47,7 +47,7 @@
     {
         "url": "bikes/bike-4.html",
         "imageUrl": "/images/bicycle-min-1.jpg",
-        "largeImageUrl": "/images/bike-1.jpg",
+        "largeImageUrl": "/images/bicycle-5.jpg",
         "title": "KROSS LEVEL A9",
         "description": "Первый карбоновый KROSS. Все необходимое и даже больше!",
         "colors": ["white"],
@@ -62,7 +62,7 @@
     {
         "url": "bikes/bike-5.html",
         "imageUrl": "/images/bicycle-min-1.jpg",
-        "largeImageUrl": "/images/bike-1.jpg",
+        "largeImageUrl": "/images/bicycle-6.jpg",
         "title": "KROSS LEVEL R3",
         "description": "Первый KROSS на колесах 27.5. Переключение Shimano Alivio, 24 скорости.",
         "colors": ["black", "red"],
@@ -77,7 +77,7 @@
     {
         "url": "bikes/bike-6.html",
         "imageUrl": "/images/bicycle-min-1.jpg",
-        "largeImageUrl": "/images/bike-1.jpg",
+        "largeImageUrl": "/images/bicycle-7.jpg",
         "title": "KROSS LEVEL R4",
         "description": "Перодвинутый маунтбайк из Европы на 27.5 колесах. Shimano Deore, 27 скоросетй.",
         "colors": ["red"],
@@ -92,7 +92,7 @@
     {
         "url": "bikes/bike-7.html",
         "imageUrl": "/images/bicycle-min-1.jpg",
-        "largeImageUrl": "/images/bike-1.jpg",
+        "largeImageUrl": "/images/bicycle-8.jpg",
         "title": "KROSS LEVEL B3",
         "description": "Первый найнер (колеса 29 дюймов) в линейке. Трансмисия Shimano Alivio, 24 скорости.",
         "colors": ["black", "red"],
