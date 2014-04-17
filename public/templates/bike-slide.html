@@ -1,1 +1,57 @@
+<div slide-info class="slide-bike-info">
+    <div class="bike-info">
+
+        <div class="bike-title">
+            <b>{{context.title}}</b>
+            {{context.description}}
+        </div>
+
+        <div class="bike-colors">
+            <div class="color-blocks">
+                <span ng-repeat="color in context.colors" style="background-color: {{color}};"></span>
+            </div>
+            <span ng-switch on="context.colors.length">
+                <div ng-switch-when="2">В двух цветах</div>
+                <div ng-switch-default>Цвет</div>
+            </span>
+        </div>
+
+        <div class="bike-prices">
+            <div class="bike-price"><div>Цена</div><b>{{context.price | money}}</b></div>
+            <div class="bike-old-price">Старая цена<span> {{context.oldPrice | money}}</span></div>
+        </div>
+
+        <div class="bike-sale">
+            <div class="bike-sale-percent">{{(100 * context.price / context.oldPrice - 100).toFixed()}}%</div>
+            <div class="bike-sale-money">Экономия<span> {{context.oldPrice - context.price | money}}</span></div>
+        </div>
+
+        <div class="bike-tail">
+            <div>Кол-во скоростей и тип переключателя</div>
+            {{context.rateNumber}} {{context.switchType}}
+        </div>
+
+        <div class="bike-tail">
+            <div>Вес велосипеда</div>
+            {{context.weight | decimal}} кг
+        </div>
+
+        <div class="bike-tail">
+            <div>Тормоза</div>
+            {{context.brakes}}
+        </div>
+
+        <div class="bike-tail bike-tail-last">
+            <div>Амортизационная вилка</div>
+            {{context.suspensionFork}}
+        </div>
+
+        <div class="bike-buy-menu">
+            <div class="bike-arrow"></div>
+            <a class="bike-buy" ng-href="{{context.url}}">КУПИТЬ</a>
+            <a class="bike-more" ng-href="{{context.url}}">СТРАНИЦА ТОВАРА</a>
+        </div>
+    </div>
+</div>
+
 <img ng-src="{{context.largeImageUrl}}" />
