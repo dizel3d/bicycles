@@ -96,6 +96,8 @@ angular.module('app', ['ngAnimate'])
                     setIndex($scope.index - 1);
                 };
 
+                $scope.setIndex = setIndex;
+
                 // TODO change slide on arrow keys down
                 $scope.onKeyDown = function(e) {
                     switch (e.keyCode) {
@@ -143,13 +145,13 @@ angular.module('app', ['ngAnimate'])
     }])
 
     .controller('AppController', ['$scope', '$http', function($scope, $http) {
-        $scope.showSketch = true;
+        $scope.showSketch = false;
 
         $http.get('/data/slides.json').success(function(data) {
             // main slides
             $scope.main = {
                 slides: data.main,
-                current: 8,
+                current: 0,
                 context: {
                     showDetails: function(index) {
                         angular.extend($scope.detail, {

@@ -454,6 +454,72 @@
     bottom: 5px;
 }
 
+.slide-footer {
+    position: absolute;
+    bottom: 1px;
+    height: 84px;
+    border-spacing: 0;
+    margin: 0 1px;
+    opacity: 1;
+    width: 100%;
+    font-family: arial;
+    color: white;
+}
+
+.slide-footer a {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.slide-footer-logo {
+    background: #393939 url("images/logo-min.png") center no-repeat;
+    width: 136px;
+}
+
+.slide-footer-call {
+    background-color: #393939;
+    padding-left: 16px;
+    width: 250px;
+}
+
+.slide-footer-call div {
+    font-size: 26pt;
+}
+
+.slide-footer-mail {
+    background-color: #393939;
+    width: 100px;
+    padding: 0 33px 8px 10px;
+    border-right: 1px solid white;
+}
+
+.slide-footer-link {
+    background-color: #8c9c46;
+    vertical-align: top;
+    padding: 16px 16px 0 31px;
+}
+
+.slide-footer-link a {
+    margin: 5px 0;
+}
+
+.slide-footer-link a:before {
+    display: inline-block;
+    content: "";
+    background: url("images/link.png") left no-repeat;
+    width: 25px;
+    height: 15px;
+    margin-bottom: -2px;
+}
+
+.slide-footer-up {
+    cursor: pointer;
+    border-left: 1px solid white;
+    background: #393939 url("images/double-arrow.png") center no-repeat;
+    width: 55px;
+}
+
 /**
  * Bike slide
  */
