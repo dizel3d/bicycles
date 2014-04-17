@@ -1,3 +1,8 @@
+<div slide-info style="position: absolute; z-index: 2">
+    <div style="position: absolute; padding: 15px 0 0 42px; font-size: 25pt">ВЫБЕРИ СВОЙ САМЫЙ ЛЕГКИЙ LEVEL</div>
+    <div style="background-color: black; opacity: 0.06; width: 600px; height: 70px;"></div>
+</div>
+
 <div class="placeholder" style="background-color: white" ng-controller="BikesController">
     <div class="bike-left-line bike-hover"></div>
     <div class="bike-right-line bike-hover" style="left: {{145 + 197 * bikes.length}}px;"></div>
@@ -19,6 +24,7 @@
                 <div class="bike-image" style="position: relative">
                     <div class="bike-hover" ng-class="{'hover-active': bike.hover}"></div>
                     <img ng-src="{{bike.imageUrl}}" />
+                    <span ng-click="context.showBike($index)"></span>
                 </div>
             </td>
         </tr>

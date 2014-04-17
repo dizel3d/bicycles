@@ -316,6 +316,18 @@
     margin-left: -3px;
 }
 
+.bike-table .bike-image span {
+    cursor: pointer;
+    content: "";
+    position: absolute;
+    background: #393939 url("images/plus.png") center no-repeat;
+    background-size: 55% 55%;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    right: 0;
+}
+
 .bike-table .bike-title {
     margin-right: -17px;
 }
