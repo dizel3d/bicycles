@@ -133,6 +133,65 @@ angular.module('app', ['ngAnimate'])
         };
     })
 
+    .directive('slideImage', function() {
+        var originSize;
+        var thisScope;
+
+        var handleResize = function(size) {
+            var percent = Math.max(size.w / originSize.w, size.h / originSize.h);
+
+            var region = {
+                width: originSize.w * percent,
+                height: originSize.h * percent
+            };
+            angular.extend(region, {
+                'margin-top': (size.h - region.height) / 2,
+                'margin-left': (size.w - region.width) / 2
+            });
+
+            this.css(region);
+
+            thisScope.$parent.slideImageRegion = region;
+            setTimeout(function() { thisScope.$digest(); }, 0);
+        };
+
+        var setUpOriginSize = function(element) {
+            if (!element.is(':visible')) return false;
+
+            originSize = {
+                w: element.width(),
+                h: element.height()
+            };
+
+            var handleWindowResize = function() {
+                handleResize.call(element, {
+                    w: angular.element(window).width(),
+                    h: angular.element(window).height()
+                })
+            };
+
+            angular.element(window).on('resize', handleWindowResize);
+            handleWindowResize();
+
+            return true;
+        };
+
+        return {
+            restrict: 'C',
+            link: function(scope, element) {
+                thisScope = scope;
+
+                element.one('load', function() {
+                    if (setUpOriginSize(element)) return;
+
+                    var stopWatch = scope.$watch('$parent.current', function() {
+                        if (setUpOriginSize(element)) stopWatch();
+                    });
+                });
+            }
+        };
+    })
+
     .controller('BikesController', ['$scope', function($scope) {
         $scope.$watch('context.bikes', function(value) {
             $scope.bikes = value;

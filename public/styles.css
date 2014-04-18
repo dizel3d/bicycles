@@ -176,14 +176,15 @@
     font-family: pt-sans-narrow;
 }
 
+/* see slideImage directive */
 .slide-image {
-    width: 100%;
+/*    width: 100%;
     height: 100%;
     -o-object-fit: cover;
     -webkit-object-fit: cover;
     -ms-object-fit: cover;
     -moz-object-fit: cover;
-    object-fit: cover;
+    object-fit: cover;*/
 }
 
 .slide .logo {
