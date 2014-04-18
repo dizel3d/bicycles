@@ -16,13 +16,13 @@
             <div ng-class="{'animate-slide': prevIndex !== undefined, up: prevIndex > index}"
                  ng-show="$index === index || $index === prevIndex">
 
+                <!-- slide -->
+                <div ng-include="slide.templateUrl" class="slide"></div>
+
                 <!-- slide sketch -->
                 <img class="sketch"
                      ng-if="sketchShow && slide.sketchUrl"
                      ng-src="{{slide.sketchUrl}}" />
-
-                <!-- slide -->
-                <div ng-include="slide.templateUrl" class="slide"></div>
             </div>
         </div>
     </div>

@@ -3,14 +3,23 @@
  */
 
 .viewer {
-    display: inline-block;
-    position: relative;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block !important;
     overflow: hidden;
+    -webkit-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+    opacity: 1;
+}
+
+.viewer.ng-hide {
+    opacity: 0;
 }
 
 .viewer .placeholder {
-    width:1600px;
-    height: 900px;
+    width: 100%;
+    height: 100%;
     background-color: #dcdcdc;
 }
 
@@ -113,6 +122,8 @@
 
 .viewer .slide-container {
     position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .viewer .slide-container .sketch {
@@ -127,8 +138,10 @@
 .viewer .animate-slide {
     display: block !important;
     position: absolute;
-    -webkit-transition: all linear 0.2s;
-    transition: all linear 0.2s;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all linear 0.3s;
+    transition: all linear 0.3s;
     opacity: 1;
     top: 0;
 }
@@ -137,18 +150,18 @@
     -webkit-transition: all linear 0s;
     transition: all linear 0s;
     opacity: 0;
-    top: 900px;
+    top: 1200px;
 }
 .viewer.flip .animate-slide.ng-hide {
-    margin-left: 1600px;
+    margin-left: 1920px;
     top: 0;
 }
 
 .viewer .animate-slide.up.ng-hide {
-    top: -900px;
+    top: -1200px;
 }
 .viewer.flip .animate-slide.up.ng-hide {
-    margin-left: -1600px;
+    margin-left: -1920px;
     top: 0;
 }
 
@@ -157,7 +170,20 @@
  */
 
 .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     font-family: pt-sans-narrow;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    -webkit-object-fit: cover;
+    -ms-object-fit: cover;
+    -moz-object-fit: cover;
+    object-fit: cover;
 }
 
 .slide .logo {
@@ -173,6 +199,7 @@
     position: absolute;
     margin: 1px;
     right: 56px;
+    top: 0;
 }
 
 .slide-info .info-content.animate-show {
@@ -263,6 +290,12 @@
  * Slide 9
  */
 
+.bike-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%
+}
+
 .bike-table {
     position: absolute;
     top: 86px;
@@ -279,6 +312,7 @@
 
 .bike-table td:first-child {
     width: 120px;
+    min-width: 120px;
     color: #757575;
     text-align: right;
     line-height: 16px;
@@ -614,7 +648,10 @@
  * Application
  */
 
+body {
+    margin: 0;
+}
+
 .slide-viewers {
-    height: 900px;
     overflow: hidden;
 }

@@ -21,6 +21,17 @@
     <div ng-app="app" ng-controller="AppController">
 
         <div class="slide-viewers">
+            <!-- main slides viewer -->
+            <div slide-viewer ng-show="!(bike.visible || detail.visible)"
+                 navigator-flip="false"
+                 navigator-loop="false"
+                 hide-close-button="true"
+                 sketch-show="showSketch"
+                 slides="main.slides"
+                 current="main.current"
+                 context="main.context">
+            </div>
+
             <!-- bike slides viewer -->
             <div slide-viewer ng-show="bike.visible"
                  navigator-flip="true"
@@ -41,22 +52,6 @@
                  slides="detail.slides"
                  current="detail.current">
             </div>
-
-            <!-- main slides viewer -->
-            <div slide-viewer
-                 navigator-flip="false"
-                 navigator-loop="false"
-                 hide-close-button="true"
-                 sketch-show="showSketch"
-                 slides="main.slides"
-                 current="main.current"
-                 context="main.context">
-            </div>
-        </div>
-
-        <!-- development panel -->
-        <div>
-            Show slide sketches: <input type="checkbox" ng-model="showSketch">
         </div>
     </div>
 </body>

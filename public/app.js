@@ -29,6 +29,7 @@ angular.module('app', ['ngAnimate'])
     .directive('slideViewer', function() {
         return {
             templateUrl: 'templates/slide-viewer.html',
+            replace: true,
 
             scope: {
                 navigatorFlip: '=', // navigator horizontal or vertical orientation
@@ -144,8 +145,8 @@ angular.module('app', ['ngAnimate'])
         })
     }])
 
-    .controller('AppController', ['$scope', '$http', function($scope, $http) {
-        $scope.showSketch = false;
+    .controller('AppController', ['$scope', '$http', '$location', function($scope, $http, $location) {
+        $scope.showSketch = $location.path() === '/dev';
 
         $http.get('/data/slides.json').success(function(data) {
             // main slides
