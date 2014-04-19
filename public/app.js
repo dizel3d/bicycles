@@ -1,4 +1,4 @@
-angular.module('app', ['ngAnimate'])
+angular.module('app', ['ngAnimate', 'monospaced.mousewheel'])
 
     /*.filter('reverse', function() {
         return function(items) {
@@ -113,7 +113,13 @@ angular.module('app', ['ngAnimate'])
                     }
                 };
 
-                $scope.$watch('current', setIndexQuickly);
+                $scope.$watch('current', function(value) {
+                    if (value < 0) {
+                        setIndex(-value - 1);
+                    } else {
+                        setIndexQuickly(value);
+                    }
+                });
 
                 $scope.$watch('slides', function() {
                     setIndexQuickly($scope.current || 0);
@@ -241,8 +247,37 @@ angular.module('app', ['ngAnimate'])
         })
     }])
 
-    .controller('AppController', ['$scope', '$http', '$location', function($scope, $http, $location) {
+    .controller('AppController', ['$scope', '$http', '$location', '$timeout', function($scope, $http, $location, $timeout) {
         $scope.showSketch = $location.path() === '/dev';
+
+        var moveTimer = null;
+        var moveSlide = function(viewer, delta, loop) {
+            if (moveTimer) return;
+
+            var index = viewer.current + delta;
+            if (loop) {
+                if (index >= viewer.slides.length) {
+                    index = 0;
+                } else if (index < 0) {
+                    index = viewer.slides.length -1;
+                }
+            }
+            viewer.current = -Math.max(0, Math.min(index, viewer.slides.length -1)) - 1;
+
+            moveTimer = $timeout(function() { moveTimer = null; }, 400);
+        };
+
+        $scope.mouseWheel = function(deltaY) {
+            var delta = -deltaY % 2;
+
+            if ($scope.detail.visible) {
+                moveSlide($scope.detail, delta, true);
+            } else if ($scope.bike.visible) {
+                moveSlide($scope.bike, delta, true);
+            } else {
+                moveSlide($scope.main, delta, false);
+            }
+        };
 
         $http.get('/data/slides.json').success(function(data) {
             // main slides

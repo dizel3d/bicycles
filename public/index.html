@@ -12,8 +12,10 @@
 
     <!-- external resources -->
     <script src="external/jquery-1.11.0.min.js"></script>
+    <script src="external/hamster.js"></script>
     <script src="external/angularjs-1.2.16/angular.min.js"></script>
     <script src="external/angularjs-1.2.16/angular-animate.min.js"></script>
+    <script src="external/mousewheel.js"></script>
     <link rel="stylesheet" href="external/fonts.css" />
 
     <link rel="stylesheet" href="styles.css" />
@@ -22,7 +24,7 @@
 <body>
     <div ng-app="app" ng-controller="AppController">
 
-        <div class="slide-viewers">
+        <div class="slide-viewers" msd-wheel="mouseWheel($deltaY)">
             <a class="logo" href="http://bikes.sportiv.ru"></a>
 
             <!-- main slides viewer -->
