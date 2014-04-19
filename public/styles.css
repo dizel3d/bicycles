@@ -258,6 +258,7 @@
 }
 
 .slide-hint .hint-content {
+    display: inline-block;
     background-color: #f1c300;
     line-height: 53px;
     padding: 0 24px;

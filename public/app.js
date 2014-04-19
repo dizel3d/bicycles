@@ -227,8 +227,8 @@ angular.module('app', ['ngAnimate', 'monospaced.mousewheel'])
                     }
 
                     element.css({
-                        left: originPosition.left * params.scale + params.left,
-                        top: originPosition.top * params.scale + params.top
+                        left: parseInt(originPosition.left * params.scale + params.left),
+                        top: parseInt(originPosition.top * params.scale + params.top)
                     });
                 });
             }
