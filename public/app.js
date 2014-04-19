@@ -122,6 +122,18 @@ angular.module('app', ['ngAnimate'])
         };
     })
 
+    .directive('slide', function() {
+        return {
+            restrict: 'C',
+            controller: ['$scope', function($scope) {
+                $scope.$on('slideImageResize', function(event, params) {
+                    event.stopPropagation = true;
+                    $scope.$broadcast('slideImageParams', params);
+                });
+            }]
+        };
+    })
+
     .directive('slideInfo', function() {
         return {
             templateUrl: 'templates/slide-info.html',
@@ -135,27 +147,31 @@ angular.module('app', ['ngAnimate'])
 
     .directive('slideImage', function() {
         var originSize;
-        var thisScope;
 
-        var handleResize = function(size) {
-            var percent = Math.max(size.w / originSize.w, size.h / originSize.h);
+        var handleResize = function(scope, element, size) {
+            var scale = Math.max(size.w / originSize.w, size.h / originSize.h);
 
             var region = {
-                width: originSize.w * percent,
-                height: originSize.h * percent
+                width: originSize.w * scale,
+                height: originSize.h * scale
             };
+
+            var params = {
+                scale: scale,
+                left: (size.w - region.width) / 2,
+                top: (size.h - region.height) / 2
+            };
+
             angular.extend(region, {
-                'margin-top': (size.h - region.height) / 2,
-                'margin-left': (size.w - region.width) / 2
+                'margin-left': params.left,
+                'margin-top': params.top
             });
 
-            this.css(region);
-
-            thisScope.$parent.slideImageRegion = region;
-            setTimeout(function() { thisScope.$digest(); }, 0);
+            element.css(region);
+            scope.$emit('slideImageResize', params);
         };
 
-        var setUpOriginSize = function(element) {
+        var setUpOriginSize = function(scope, element) {
             if (!element.is(':visible')) return false;
 
             originSize = {
@@ -164,10 +180,10 @@ angular.module('app', ['ngAnimate'])
             };
 
             var handleWindowResize = function() {
-                handleResize.call(element, {
+                handleResize(scope, element, {
                     w: angular.element(window).width(),
                     h: angular.element(window).height()
-                })
+                });
             };
 
             angular.element(window).on('resize', handleWindowResize);
@@ -179,13 +195,28 @@ angular.module('app', ['ngAnimate'])
         return {
             restrict: 'C',
             link: function(scope, element) {
-                thisScope = scope;
-
                 element.one('load', function() {
-                    if (setUpOriginSize(element)) return;
+                    if (setUpOriginSize(scope, element)) return;
 
-                    var stopWatch = scope.$watch('$parent.current', function() {
-                        if (setUpOriginSize(element)) stopWatch();
+                    var stopWatch = scope.$parent.$watch('current', function() {
+                        if (setUpOriginSize(scope, element)) stopWatch();
+                    });
+                });
+            }
+        };
+    })
+
+    .directive('slideHint', function() {
+        return {
+            restrict: 'C',
+            replace: true,
+            link: function(scope, element) {
+                var originPosition  = element.position();
+
+                scope.$on('slideImageParams', function(event, params) {
+                    element.css({
+                        left: originPosition.left * params.scale + params.left,
+                        top: originPosition.top * params.scale + params.top
                     });
                 });
             }
