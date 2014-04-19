@@ -1,7 +1,7 @@
-<div class="placeholder" style="background-color: white" ng-controller="BikesController">
+<div class="placeholder" style="background-color: white;" ng-controller="BikesController">
 
-    <div style="position: absolute; left: -165px; bottom: 0; right: 0; top: 0; margin-right: -70px">
-        <table style="position: absolute; width: auto; height: 100%; border-spacing: 0;">
+    <div style="position: absolute; width: 100%; height: auto; top: 0; bottom: 85px; overflow: auto;">
+        <table style="position: absolute; width: auto; height: 100%; min-height: 780px; border-spacing: 0;">
             <tr>
                 <td class="bike-hover" style="width: 50%"></td>
                 <td class="bike-hover" style="min-width: 161px"></td>
@@ -122,29 +122,29 @@
             </tr>
         </table>
     </div>
-
-    <!-- footer -->
-    <table class="slide-footer">
-        <tr>
-            <td class="slide-footer-logo"></td>
-            <td class="slide-footer-call">
-                <div>8 800 100 0503</div>
-                звонок бесплатный
-            </td>
-            <td class="slide-footer-mail">
-                <a href="mailto:info@sportiv.ru">INFO@SPORTIV.RU</a>
-            </td>
-            <td class="slide-footer-link" width="205">
-                <a href="contacts/address-1.html">Sportiv на Ленинском</a>
-                <a href="contacts/address-2.html">Sportiv на Бауманской</a>
-            </td>
-            <td class="slide-footer-link" style="padding-left: 10px">
-                <a href="contacts/address-3.html">Доставка и оплата</a>
-            </td>
-            <td class="slide-footer-up" ng-click="$parent.$parent.setIndex(0)"></td>
-        </tr>
-    </table>
 </div>
+
+<!-- footer -->
+<table class="slide-footer">
+    <tr>
+        <td class="slide-footer-logo"></td>
+        <td class="slide-footer-call">
+            <div>8 800 100 0503</div>
+            звонок бесплатный
+        </td>
+        <td class="slide-footer-mail">
+            <a href="mailto:info@sportiv.ru">INFO@SPORTIV.RU</a>
+        </td>
+        <td class="slide-footer-link" width="205">
+            <a href="contacts/address-1.html">Sportiv на Ленинском</a>
+            <a href="contacts/address-2.html">Sportiv на Бауманской</a>
+        </td>
+        <td class="slide-footer-link" style="padding-left: 10px">
+            <a href="contacts/address-3.html">Доставка и оплата</a>
+        </td>
+        <td class="slide-footer-up" ng-click="$parent.$parent.setIndex(0)"></td>
+    </tr>
+</table>
 
 <div slide-info style="float: right; top: 0;">
     <div style="background-color: black; opacity: 0.06; width: 600px; height: 70px;"></div>

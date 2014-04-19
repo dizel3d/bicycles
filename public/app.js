@@ -274,7 +274,7 @@ angular.module('app', ['ngAnimate', 'monospaced.mousewheel'])
                 moveSlide($scope.detail, delta, true);
             } else if ($scope.bike.visible) {
                 moveSlide($scope.bike, delta, true);
-            } else {
+            } else if ($scope.main.current !== 8) {
                 moveSlide($scope.main, delta, false);
             }
         };
