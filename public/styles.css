@@ -348,6 +348,7 @@
 }
 
 .bike-table .bike-image {
+    font-family: arial;
     margin-left: -3px;
 }
 
@@ -498,7 +499,7 @@
     left: 0;
     top: 0;
     right: 0;
-    bottom: 5px;
+    bottom: 4px;
 }
 
 .slide-footer {
