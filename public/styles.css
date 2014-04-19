@@ -187,8 +187,10 @@
     object-fit: cover;*/
 }
 
-.slide .logo {
+.logo {
+    display: block;
     position: absolute;
+    z-index: 4;
     background: url("images/logo.png") center no-repeat;
     width: 103px;
     height: 100px;
