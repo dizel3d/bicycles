@@ -211,9 +211,15 @@ angular.module('app', ['ngAnimate'])
             restrict: 'C',
             replace: true,
             link: function(scope, element) {
-                var originPosition  = element.position();
+                var originPosition;
 
                 scope.$on('slideImageParams', function(event, params) {
+                    if (!originPosition) {
+                        if (!element.is(':visible')) return;
+
+                        originPosition = element.position();
+                    }
+
                     element.css({
                         left: originPosition.left * params.scale + params.left,
                         top: originPosition.top * params.scale + params.top
