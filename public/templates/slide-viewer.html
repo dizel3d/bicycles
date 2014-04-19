@@ -6,8 +6,8 @@
             <a class="navigator-btn arrow" ng-click="moveNext()" ng-show="canMoveNext"></a>
             <a class="navigator-btn cross" ng-if="!hideCloseButton" ng-click="close()"></a>
             <div class="slider">
-                <div class="scale" style="height: {{29 * (slides.length - 1) + 1}}px"></div>
-                <div class="pointer" style="top: {{29 * (navigatorFlip ? slides.length-1-index : index)}}px"></div>
+                <div class="scale" ng-style="{height: 29 * (slides.length - 1) + 1 + 'px'}"></div>
+                <div class="pointer" ng-style="{top: 29 * (navigatorFlip ? slides.length-1-index : index) + 'px'}"></div>
             </div>
         </div>
 

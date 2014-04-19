@@ -252,6 +252,7 @@
     vertical-align: middle;
     font-size: 16pt;
     cursor: pointer;
+    white-space: nowrap;
     -webkit-filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.3));
     filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.3));
 }
