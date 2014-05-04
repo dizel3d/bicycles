@@ -279,7 +279,7 @@ angular.module('app', ['ngAnimate', 'monospaced.mousewheel'])
             }
         };
 
-        $http.get('/data/slides.json').success(function(data) {
+        $http.get('data/slides.json').success(function(data) {
             // main slides
             $scope.main = {
                 slides: data.main,
@@ -310,7 +310,7 @@ angular.module('app', ['ngAnimate', 'monospaced.mousewheel'])
             // bike slide common info
             var bikeSlide = data.bike;
 
-            $http.get('/data/bikes.json').success(function(bikes) {
+            $http.get('data/bikes.json').success(function(bikes) {
                 $scope.main.context.bikes = bikes;
 
                 var slides = new Array(bikes.length);
