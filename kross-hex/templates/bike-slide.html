@@ -1,0 +1,49 @@
+<div class="bike-slide" ng-controller="BikeController">
+    <img class="slide-image" ng-src="{{bike.largeImageUrl}}" />
+
+    <div slide-info class="slide-bike-info">
+        <div class="bike-info">
+
+            <div class="bike-title">
+                <b>{{bike.title}}</b>
+                {{bike.description}}
+            </div>
+
+            <div class="bike-prices">
+                <div class="bike-price"><div>Цена</div><b>{{bike.price | money}}</b></div>
+                <div class="bike-old-price">Старая цена<span> {{bike.oldPrice | money}}</span></div>
+            </div>
+
+            <div class="bike-sale">
+                <div class="bike-sale-percent">{{(100 * bike.price / bike.oldPrice - 100).toFixed()}}%</div>
+                <div class="bike-sale-money">Экономия<span> {{bike.oldPrice - bike.price | money}}</span></div>
+            </div>
+
+            <div class="bike-tail">
+                <div>Кол-во скоростей и тип переключателя</div>
+                {{bike.rateNumber}} {{bike.switchType}}
+            </div>
+
+            <div class="bike-tail">
+                <div>Вес велосипеда</div>
+                {{bike.weight | decimal}} кг
+            </div>
+
+            <div class="bike-tail">
+                <div>Тормоза</div>
+                {{bike.brakes}}
+            </div>
+
+            <div class="bike-tail bike-tail-last">
+                <div>Амортизационная вилка</div>
+                {{bike.suspensionFork}}
+            </div>
+
+            <div class="bike-buy-menu">
+                <div class="bike-arrow"></div>
+                <a class="bike-buy" ng-href="{{bike.url}}">КУПИТЬ</a>
+                <a class="bike-more" ng-href="{{bike.url}}">СТРАНИЦА ТОВАРА</a>
+            </div>
+        </div>
+    </div>
+</div>

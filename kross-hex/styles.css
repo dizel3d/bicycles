@@ -1,0 +1,667 @@
+/**
+ * Slide viewer
+ */
+
+.viewer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block !important;
+    overflow: hidden;
+    -webkit-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+    opacity: 1;
+}
+
+.viewer.ng-hide {
+    opacity: 0;
+}
+
+.viewer .placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #dcdcdc;
+}
+
+.viewer .navigator {
+    position: absolute;
+    right: 0;
+    z-index: 2;
+}
+.viewer.flip .navigator {
+    margin-right: 5px;
+}
+
+.viewer .navigator .slider {
+    position: relative;
+    margin-top: 25px;
+}
+.viewer.flip .navigator .slider {
+    position: absolute;
+    margin-top: -64px;
+    margin-left: -33px;
+    -webkit-transform: scaleY(-1) rotate(90deg);
+    -moz-transform: scaleY(-1) rotate(90deg);
+    -o-transform: scaleY(-1) rotate(90deg);
+    -ms-transform: scaleY(-1) rotate(90deg);
+    transform: scaleY(-1) rotate(90deg);
+}
+
+.viewer .navigator .slider .scale {
+    background-image: url("images/scale.png");
+    width: 14px;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+
+.viewer .navigator .slider .pointer {
+    background-image: url("images/slider.png");
+    width: 27px;
+    height: 15px;
+    position: absolute;
+    margin-top: -7px;
+    top: 0;
+    right: 14px;
+}
+
+/* arrow */
+.viewer .navigator .navigator-btn {
+    background-color: #393939;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+    width: 55px;
+    height: 70px;
+    margin: 1px;
+}
+.viewer.flip .navigator .navigator-btn {
+    display: inline-block;
+    margin-right: -4px;
+}
+
+/* arrow down/left */
+.viewer .navigator .arrow:before {
+    background: url("images/arrow.png") center no-repeat;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.viewer.flip .navigator .arrow:before {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+/* arrow up/right */
+.viewer .navigator .arrow-up:before {
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: FlipV;
+    -ms-filter: "FlipV";
+}
+.viewer.flip .navigator .arrow-up:before
+{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.viewer .navigator .cross {
+    background: #393939 url("images/cross.png") center no-repeat;
+}
+
+.viewer .slide-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.viewer .slide-container .sketch {
+    position: absolute;
+    opacity: 0.5;
+}
+
+.viewer .slide-container.active {
+    z-index: 1;
+}
+
+.viewer .animate-slide {
+    display: block !important;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all linear 0.3s;
+    transition: all linear 0.3s;
+    opacity: 1;
+    top: 0;
+}
+
+.viewer .animate-slide.ng-hide {
+    -webkit-transition: all linear 0s;
+    transition: all linear 0s;
+    opacity: 0;
+    top: 1200px;
+}
+.viewer.flip .animate-slide.ng-hide {
+    margin-left: 1920px;
+    top: 0;
+}
+
+.viewer .animate-slide.up.ng-hide {
+    top: -1200px;
+}
+.viewer.flip .animate-slide.up.ng-hide {
+    margin-left: -1920px;
+    top: 0;
+}
+
+/**
+ * Slide
+ */
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-family: pt-sans-narrow;
+}
+
+/* see slideImage directive */
+.slide-image {
+/*    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    -webkit-object-fit: cover;
+    -ms-object-fit: cover;
+    -moz-object-fit: cover;
+    object-fit: cover;*/
+}
+
+.logo {
+    display: block;
+    position: absolute;
+    z-index: 4;
+    background: url("images/logo.png") center no-repeat;
+    width: 103px;
+    height: 100px;
+    left: 25px;
+    top: 20px;
+}
+
+.slide-info {
+    position: absolute;
+    margin: 1px;
+    right: 56px;
+    top: 0;
+}
+
+.slide-info .info-content.animate-show {
+    display: block !important;
+    -webkit-transition: .5s ease-out 0.3s;
+    transition: .5s ease-out 0.3s;
+    opacity: 1;
+}
+
+.slide-info .info-content.animate-show.ng-hide {
+    -webkit-transition: all linear 0s;
+    transition: all linear 0s;
+    opacity: 0;
+}
+
+.slide-info .info-content > .animate-show {
+    display: block !important;
+    -webkit-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+    opacity: 1;
+}
+
+.slide-info .info-content > .animate-show.ng-hide {
+    opacity: 0;
+}
+
+.slide-info .info-btn {
+    display: block;
+    position: absolute;
+    width: 55px;
+    height: 70px;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.slide-info .info-btn.info-close-btn {
+    background: url("images/cross.png") center no-repeat;
+}
+
+.slide-info .info-btn.info-show-btn {
+    background: #393939 url("images/list.png") center no-repeat;
+}
+
+.slide-hint {
+    position: absolute;
+    vertical-align: middle;
+    font-size: 16pt;
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.3));
+    filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.3));
+}
+
+.slide-hint .hint-content {
+    display: inline-block;
+    background-color: #f1c300;
+    line-height: 53px;
+    padding: 0 24px;
+}
+
+.slide-hint .hint-content:before {
+    content: "";
+    background: black url("images/plus.png") center no-repeat;
+    width: 57px;
+    height: 53px;
+    margin: 0 -24px 0 24px;
+    float: right;
+}
+.slide-hint .hint-content.flip:before {
+    margin: 0 24px 0 -24px;
+    float: left;
+}
+
+.slide-hint .hint-pointer {
+    background: url("images/pointer.png") center no-repeat;
+    width: 21px;
+    height: 11px;
+}
+.slide-hint .hint-pointer.flip {
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: FlipV;
+    -ms-filter: "FlipV";
+}
+
+/**
+ * Slide 9
+ */
+
+.bike-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%
+}
+
+.bike-table-container {
+    position: relative;
+    margin: auto;
+    display: table;
+    padding: 86px 130px 0 0;
+}
+
+.bike-table {
+    margin-left: -21px;
+    border-spacing: 30px 0;
+}
+
+.bike-table td {
+    width: 170px;
+    border-bottom: 1px solid #9a9a9a;
+    padding: 10px 0;
+    vertical-align: top;
+}
+
+.bike-table td:first-child {
+    width: 120px;
+    min-width: 120px;
+    color: #757575;
+    text-align: right;
+    line-height: 16px;
+    border: none;
+}
+
+.bike-table td:first-child > * {
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.color-blocks {
+    display: inline-block;
+    float: right;
+    margin-top: 3px;
+}
+
+.color-blocks > * {
+    margin-left: 5px;
+    width: 34px;
+    height: 17px;
+    display: inline-block;
+}
+
+.bike-table .tail-td {
+    padding: 6px 0;
+    line-height: 14pt;
+}
+
+.bike-table .last-td {
+    padding-bottom: 27px;
+}
+
+.bike-table .bike-image {
+    font-family: arial;
+    margin: -10px -11px -10px -9px;
+    background-color: white;
+}
+
+.bike-table .bike-image span {
+    cursor: pointer;
+    content: "";
+    position: absolute;
+    background: #393939 url("images/plus.png") center no-repeat;
+    background-size: 55% 55%;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 0;
+}
+
+.bike-table .bike-title {
+    margin-right: -17px;
+}
+
+.bike-table .bike-title b {
+    display: block;
+    font-size: 16pt;
+    margin-bottom: 3px;
+}
+
+.bike-table .colors-td {
+    padding: 8px 0;
+}
+
+.bike-price div {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.bike-price b {
+    display: inline-block;
+    float: right;
+    background-color: #9a9a9a;
+    font-size: 16pt;
+    color: white;
+    padding: 2px 0;
+    margin-top: -10px;
+    width: 120px;
+    text-align: center;
+}
+
+.bike-old-price {
+    margin-bottom: 2px;
+}
+
+.bike-old-price span {
+    font-size: 14pt;
+}
+
+.bike-sale {
+    margin: -10px 0 5px 0;
+	color: red;
+}
+
+.bike-sale-percent {
+    font-size: 13pt;
+    float: right;
+    border-left: 1px solid #9a9a9a;
+    padding: 8px 0 0 6px;
+}
+
+.bike-sale-money {
+    padding-top: 8px;
+}
+
+.bike-sale-money span {
+    font-size: 13pt;
+}
+
+.bike-table .bike-buy-td {
+    padding: 0;
+    border: none;
+    font-size: 13pt;
+}
+
+.bike-arrow {
+    background: url("images/next.png") center no-repeat;
+    width: 46px;
+    height: 65px;
+    float: left;
+}
+
+.bike-buy {
+    display: block;
+    background-color: #ef4849;
+    color: white;
+    margin-left: 47px;
+    padding-top: 5px;
+    height: 25px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.bike-buy:after {
+    content: "";
+    background: url("images/buy.png") center no-repeat;
+    width: 31px;
+    height: 30px;
+    margin-top: -5px;
+    float: right;
+    border-left: 1px solid white;
+}
+
+.bike-more {
+    margin: 2px 0 0 47px;
+    padding: 6px 0 3px 15px;
+    border-left: 1px solid #9a9a9a;
+    cursor: pointer;
+}
+
+.bike-hover {
+    background-color: black;
+    opacity: 0.1;
+}
+
+.bike-hover.hover-active {
+    opacity: 0.05;
+}
+
+.bike-line {
+    min-width: 198px;
+}
+
+.bike-left-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 145px;
+}
+
+.bike-right-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.bike-image .bike-hover {
+    position: absolute;
+    background-color: black;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.slide-footer {
+    position: absolute;
+    bottom: 1px;
+    height: 84px;
+    border-spacing: 0;
+    padding: 0 1px;
+    opacity: 1;
+    width: 100%;
+    font-family: arial;
+    color: white;
+}
+
+.slide-footer a {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.slide-footer-logo {
+    background: #393939 url("images/logo-min.png") center no-repeat;
+    width: 136px;
+}
+
+.slide-footer-call {
+    background-color: #393939;
+    padding-left: 16px;
+    width: 250px;
+}
+
+.slide-footer-call div {
+    font-size: 26pt;
+}
+
+.slide-footer-mail {
+    background-color: #393939;
+    width: 100px;
+    padding: 0 33px 8px 10px;
+    border-right: 1px solid white;
+}
+
+.slide-footer-link {
+    background-color: #8c9c46;
+    vertical-align: top;
+    padding: 16px 16px 0 31px;
+}
+
+.slide-footer-link a {
+    margin: 5px 0;
+}
+
+.slide-footer-link a:before {
+    display: inline-block;
+    content: "";
+    background: url("images/link.png") left no-repeat;
+    width: 25px;
+    height: 15px;
+    margin-bottom: -2px;
+}
+
+.slide-footer-up {
+    cursor: pointer;
+    border-left: 1px solid white;
+    background: #393939 url("images/double-arrow.png") center no-repeat;
+    width: 55px;
+}
+
+/**
+ * Bike slide
+ */
+
+.slide-bike-info {
+    margin: 72px -56px 0 0;
+    width: 394px;
+}
+
+.slide-bike-info .info-btn {
+    margin-right: 1px;
+}
+
+.slide-bike-info .info-close-btn {
+    -webkit-filter: invert(35%);
+    filter: invert(35%);
+}
+
+.bike-info {
+    background-color: #e2e2e2;
+    height: 900px;
+    padding: 103px 50px 0 57px;
+}
+
+.bike-info > * {
+    border-bottom: 1px solid #9a9a9a;
+}
+
+.bike-info .bike-title {
+    padding-bottom: 11px;
+}
+
+.bike-info .bike-title b {
+    display: block;
+    font-size: 18pt;
+    margin-bottom: 4px;
+}
+
+.bike-info .bike-colors {
+    padding: 9px 120px 16px 0;
+}
+
+.bike-info .bike-prices {
+    padding: 24px 120px 8px 0;
+}
+
+.bike-info .bike-sale {
+    padding: 12px 10px 16px 0;
+}
+
+.bike-info .bike-tail {
+    font-size: 13pt;
+    padding: 5px 0;
+}
+
+.bike-info .bike-tail div {
+    color: #757575;
+}
+
+.bike-info .bike-tail-last {
+    padding: 5px 0 24px 0;
+}
+
+.bike-info .bike-buy-menu {
+    border: none;
+    font-size: 13pt;
+    padding-right: 105px;
+    border: 0;
+}
+
+.bike-info .bike-buy-menu .bike-more {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 9px 0 0 8px;
+    margin: 2px -50px 0 47px;
+}
+
+/**
+ * Application
+ */
+
+body {
+    margin: 0;
+}
+
+.slide-viewers {
+    overflow: hidden;
+}

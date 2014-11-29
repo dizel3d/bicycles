@@ -1,0 +1,44 @@
+{
+    "main": [
+        {
+            "sketchUrl": "design/scr/scr1.jpg",
+            "templateUrl": "templates/slide-1.html"
+        },
+        {
+            "sketchUrl": "design/scr/scr2.jpg",
+            "templateUrl": "templates/main-slide.html"
+        },
+        {
+            "sketchUrl": "design/scr/scr3.jpg",
+            "templateUrl": "templates/slide-3.html"
+        },
+        {
+            "sketchUrl": "design/scr/scr4.jpg",
+            "templateUrl": "templates/slide-4.html"
+        },
+        {
+            "sketchUrl": "design/scr/scr5.jpg",
+            "templateUrl": "templates/main-slide.html"
+        },
+        {
+            "sketchUrl": "design/scr/scr6.jpg",
+            "templateUrl": "templates/main-slide.html"
+        },
+        {
+            "sketchUrl": "design/scr/scr7.jpg",
+            "templateUrl": "templates/main-slide.html"
+        },
+        {
+            "sketchUrl": "design/scr/scr8.jpg",
+            "templateUrl": "templates/main-slide.html"
+        },
+        {
+            "sketchUrl": "design/scr/scr9.jpg",
+            "templateUrl": "templates/slide-9.html"
+        }
+    ],
+    "bike": {
+        "sketchUrl": "design/scr/scr11.jpg",
+        "templateUrl": "templates/bike-slide.html"
+    }
+}

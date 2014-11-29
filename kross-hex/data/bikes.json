@@ -1,0 +1,62 @@
+[
+    {
+        "url": "bikes/bike-1.html",
+        "imageUrl": "images/data/bike-1-min.jpg",
+        "largeImageUrl": "images/data/slide-2.jpg",
+        "title": "KROSS HEXAGON X4",
+        "description": "Лучший по цене европейский велосипед на механических дисковых тормозах",
+        "colors": ["red"],
+        "price": 14500,
+        "oldPrice": 17883,
+        "rateNumber": 21,
+        "switchType": "Shimano Acera",
+        "weight": 15,
+        "brakes": "Дисковые механические Tektro",
+        "suspensionFork": "SR Suntour, ход 72 мм"
+    },
+    {
+        "url": "bikes/bike-2.html",
+        "imageUrl": "images/data/bike-2-min.jpg",
+        "largeImageUrl": "images/data/slide-3.jpg",
+        "title": "KROSS HEXAGON X6",
+        "description": "BEST PRICE байк из Европы на гидравлических дисковых тормозах",
+        "colors": ["black"],
+        "price": 14500,
+        "oldPrice": 17883,
+        "rateNumber": 21,
+        "switchType": "Shimano Acera",
+        "weight": 14,
+        "brakes": "Дисковые гидравлические Shimano",
+        "suspensionFork": "SR Suntour, ход 72 мм"
+    },
+    {
+        "url": "bikes/bike-3.html",
+        "imageUrl": "images/data/bike-3-min.jpg",
+        "largeImageUrl": "images/data/bike-3.jpg",
+        "title": "KROSS HEXAGON X8",
+        "description": "Продвинутый байк на Shimano Alivio (24 скорости). Улучшенная вилка.",
+        "colors": ["red", "black"],
+        "price": 14500,
+        "oldPrice": 17883,
+        "rateNumber": 24,
+        "switchType": "Shimano Acera",
+        "weight": 14.5,
+        "brakes": "Дисковые гидравлические Shimano",
+        "suspensionFork": "SR Suntour XCT, ход 100 мм"
+    },
+    {
+        "url": "bikes/bike-4.html",
+        "imageUrl": "images/data/bike-4-min.jpg",
+        "largeImageUrl": "images/data/slide-5.jpg",
+        "title": "KROSS HEXAGON X9",
+        "description": "«Полный фарш»: вилка с блокировкой, переключение Shimano Deore, 27 передач",
+        "colors": ["white"],
+        "price": 14500,
+        "oldPrice": 17883,
+        "rateNumber": 27,
+        "switchType": "Shimano Acera",
+        "weight": 14.7,
+        "brakes": "Дисковые гидравлические Shimano",
+        "suspensionFork": "SR Suntour XCT, ход 100 мм, с блокировкой"
+    }
+]

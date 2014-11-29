@@ -1,0 +1,32 @@
+<div class="viewer" ng-class="{flip: navigatorFlip}">
+    <div ng-if="slides">
+        <!-- navigator -->
+        <div class="navigator">
+            <a class="navigator-btn arrow arrow-up" ng-click="movePrev()" ng-show="canMovePrev"></a>
+            <a class="navigator-btn arrow" ng-click="moveNext()" ng-show="canMoveNext"></a>
+            <a class="navigator-btn cross" ng-if="!hideCloseButton" ng-click="close()"></a>
+            <div class="slider">
+                <div class="scale" ng-style="{height: 29 * (slides.length - 1) + 1 + 'px'}"></div>
+                <div class="pointer" ng-style="{top: 29 * (navigatorFlip ? slides.length-1-index : index) + 'px'}"></div>
+            </div>
+        </div>
+
+        <!-- slides -->
+        <div ng-repeat="slide in slides" class="slide-container" ng-class="{active: $index === index}">
+            <div ng-class="{'animate-slide': prevIndex !== undefined, up: prevIndex > index}"
+                 ng-show="$index === index || $index === prevIndex">
+
+                <!-- slide -->
+                <div ng-include="slide.templateUrl" class="slide"></div>
+
+                <!-- slide sketch -->
+                <img class="sketch"
+                     ng-if="sketchShow && slide.sketchUrl"
+                     ng-src="{{slide.sketchUrl}}" />
+            </div>
+        </div>
+    </div>
+
+    <!-- placeholder -->
+    <div class="placeholder"></div>
+</div>
